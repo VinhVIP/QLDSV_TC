@@ -24,7 +24,7 @@ namespace QLDSV_TC
         private void frmMain_Load(object sender, EventArgs e)
         {
             // Hiển thị thông tin của user ở góc dưới màn hình
-            txtLoginInfo.Caption = Program.fullName;
+            txtLoginInfo.Caption = Program.fullName + " - " + Program.username + " - " + Program.role;
         }
 
         /**
@@ -70,6 +70,13 @@ namespace QLDSV_TC
         private void btnNhapMH_ItemClick(object sender, ItemClickEventArgs e)
         {
             showUserControl(new frmNhapMH(), btnNhapMH);
+        }
+
+        private void btnTaoTK_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (Program.role.Equals("SV")) return;
+
+            showUserControl(new frmTaoTK(), btnTaoTK);
         }
     }
 }

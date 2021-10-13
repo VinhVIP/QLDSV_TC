@@ -49,6 +49,12 @@ namespace QLDSV_TC
                 return;
             }
 
+            if(comboKhoa.SelectedIndex == -1)
+            {
+                MessageBox.Show("Vui lòng chọn site đăng nhập", "Thông báo", MessageBoxButtons.OK);
+                return;
+            }
+
             // Thiết lập cấu hình kết nối
             Program.setConnectionProperties((string)comboKhoa.SelectedValue, txtTK.Text.Trim(), txtMK.Text.Trim());
 
@@ -78,9 +84,9 @@ namespace QLDSV_TC
                     if (Program.reader.Read())
                     {
                         // Lưu trữ thông tin sinh viên đăng nhập
+                        Program.username = Program.reader.GetString(0).Trim();
                         Program.fullName = Program.reader.GetString(1);
-                        
-                        // MessageBox.Show(Program.fullName, "Info");
+                        Program.role = "SV";
 
                         // Hiển thị frmMain và ẩn frmLogin
                         new frmMain().Show();
@@ -119,8 +125,10 @@ namespace QLDSV_TC
 
             if (Program.reader.Read())
             {
+                Program.username = Program.reader.GetString(0).Trim();
                 Program.fullName = Program.reader.GetString(1);
-                // MessageBox.Show(Program.fullName, "Info");
+                Program.role = Program.reader.GetString(2);
+                
                 new frmMain().Show();
                 this.Hide();
             }

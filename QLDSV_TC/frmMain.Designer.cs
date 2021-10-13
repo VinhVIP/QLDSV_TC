@@ -170,6 +170,7 @@ namespace QLDSV_TC
             this.btnTaoTK.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnTaoTK.ImageOptions.LargeImage")));
             this.btnTaoTK.LargeWidth = 70;
             this.btnTaoTK.Name = "btnTaoTK";
+            this.btnTaoTK.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTaoTK_ItemClick);
             // 
             // btnLogout
             // 

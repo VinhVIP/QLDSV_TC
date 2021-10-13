@@ -75,6 +75,12 @@
     <Compile Include="frmNhapMH.Designer.cs">
       <DependentUpon>frmNhapMH.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmTaoTK.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="frmTaoTK.Designer.cs">
+      <DependentUpon>frmTaoTK.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmNhapLop.resx">
@@ -88,6 +94,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmNhapMH.resx">
       <DependentUpon>frmNhapMH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTaoTK.resx">
+      <DependentUpon>frmTaoTK.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

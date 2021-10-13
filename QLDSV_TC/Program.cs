@@ -29,6 +29,7 @@ namespace QLDSV_TC
         public static String pass = "";
 
         public static String fullName = "";
+        public static String role = "";
 
         public static String loginSV = "SV";
         public static String passSV = "123456";
