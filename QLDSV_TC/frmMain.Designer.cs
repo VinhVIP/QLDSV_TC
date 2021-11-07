@@ -29,6 +29,7 @@ namespace QLDSV_TC
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnNhapLop = new DevExpress.XtraBars.BarButtonItem();
@@ -46,6 +47,7 @@ namespace QLDSV_TC
             this.btnBCPhieuDiem = new DevExpress.XtraBars.BarButtonItem();
             this.btnBCDiemTongKet = new DevExpress.XtraBars.BarButtonItem();
             this.btnBCDongHP = new DevExpress.XtraBars.BarButtonItem();
+            this.btnSinhVien = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -58,9 +60,10 @@ namespace QLDSV_TC
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-            this.panel = new DevExpress.XtraEditors.PanelControl();
+            this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbon
@@ -83,9 +86,10 @@ namespace QLDSV_TC
             this.btnBCDiemMH,
             this.btnBCPhieuDiem,
             this.btnBCDiemTongKet,
-            this.btnBCDongHP});
+            this.btnBCDongHP,
+            this.btnSinhVien});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 21;
+            this.ribbon.MaxItemId = 22;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -96,7 +100,7 @@ namespace QLDSV_TC
             // 
             // btnNhapLop
             // 
-            this.btnNhapLop.Caption = "Nhập Lớp";
+            this.btnNhapLop.Caption = "Nhập Lớp - Sinh Viên";
             this.btnNhapLop.Id = 1;
             this.btnNhapLop.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnNhapLop.ImageOptions.Image")));
             this.btnNhapLop.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnNhapLop.ImageOptions.LargeImage")));
@@ -234,6 +238,13 @@ namespace QLDSV_TC
             this.btnBCDongHP.LargeWidth = 70;
             this.btnBCDongHP.Name = "btnBCDongHP";
             // 
+            // btnSinhVien
+            // 
+            this.btnSinhVien.Caption = "Nhập SV";
+            this.btnSinhVien.Id = 21;
+            this.btnSinhVien.Name = "btnSinhVien";
+            this.btnSinhVien.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSinhVien_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -313,34 +324,41 @@ namespace QLDSV_TC
             // ribbonStatusBar
             // 
             this.ribbonStatusBar.ItemLinks.Add(this.txtLoginInfo);
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 731);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 836);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
             this.ribbonStatusBar.Size = new System.Drawing.Size(1311, 24);
             // 
-            // panel
+            // xtraTabbedMdiManager1
             // 
-            this.panel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel.Location = new System.Drawing.Point(0, 158);
-            this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(1311, 573);
-            this.panel.TabIndex = 2;
+            this.xtraTabbedMdiManager1.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InAllTabPagesAndTabControlHeader;
+            this.xtraTabbedMdiManager1.MdiParent = this;
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Location = new System.Drawing.Point(0, 814);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1311, 22);
+            this.statusStrip1.TabIndex = 6;
+            this.statusStrip1.Text = "statusStrip1";
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1311, 755);
-            this.Controls.Add(this.panel);
+            this.ClientSize = new System.Drawing.Size(1311, 860);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbon);
+            this.IsMdiContainer = true;
             this.Name = "frmMain";
             this.Ribbon = this.ribbon;
             this.StatusBar = this.ribbonStatusBar;
             this.Text = "frmMain";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -376,6 +394,8 @@ namespace QLDSV_TC
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup7;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup8;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup6;
-        private DevExpress.XtraEditors.PanelControl panel;
+        private DevExpress.XtraTabbedMdi.XtraTabbedMdiManager xtraTabbedMdiManager1;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private DevExpress.XtraBars.BarButtonItem btnSinhVien;
     }
 }

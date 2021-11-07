@@ -13,8 +13,6 @@ namespace QLDSV_TC
 {
     public partial class frmMain : DevExpress.XtraBars.Ribbon.RibbonForm
     {
-        private BarButtonItem lastButtonItem = null;    
-        private UserControl lastControl = null;
 
         public frmMain()
         {
@@ -25,35 +23,18 @@ namespace QLDSV_TC
         {
             // Hiển thị thông tin của user ở góc dưới màn hình
             txtLoginInfo.Caption = Program.fullName + " - " + Program.username + " - " + Program.role;
+
+            Program.loginDN = Program.mLogin;
+            Program.passDN = Program.pass;
         }
 
-        /**
-         * Hiển thị UserControl được chọn khi click vào 1 buttonItem trên ribbon menu
-         * Highlight buttonItem được chọn và bỏ highlight những buttonItem khác
-         * 
-         * @param control       UserControl cần được hiển thị
-         * @param buttonItem    item trên ribbon menu được click
-         */
-        private void showUserControl(UserControl control, BarButtonItem buttonItem)
+        private Form checkExists(Type frmType)
         {
-            // Nếu chọn lại buttonItem cũ thì k làm gì hết
-            if (lastButtonItem != null && lastButtonItem.Equals(buttonItem)) return;
-
-            // Giải phóng vùng nhớ của UserControl trước đó
-            if (lastControl != null) lastControl.Dispose();
-
-            // Xóa vùng vẽ, và vẽ UserControl lên panel
-            panel.Controls.Clear();
-            panel.Dock = DockStyle.Fill;
-            control.Dock = DockStyle.Fill;
-            panel.Controls.Add(control);
-
-            // Đổi màu cho buttonItem
-            buttonItem.ItemAppearance.Normal.BackColor = Color.Snow;
-            if (lastButtonItem != null) lastButtonItem.ItemAppearance.Normal.BackColor = Color.Gainsboro;
-
-            lastButtonItem = buttonItem;
-            lastControl = control;
+            foreach(Form f in this.MdiChildren)
+            {
+                if (f.GetType() == frmType) return f;
+            }
+            return null;
         }
 
         private void btnLogout_ItemClick(object sender, ItemClickEventArgs e)
@@ -64,19 +45,38 @@ namespace QLDSV_TC
 
         private void btnNhapLop_ItemClick(object sender, ItemClickEventArgs e)
         {
-            showUserControl(new frmNhapLop(), btnNhapLop);
+            Form frm = this.checkExists(typeof(frmSV));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmSV f = new frmSV();
+                f.MdiParent = this;
+                f.Show();
+            }
         }
 
         private void btnNhapMH_ItemClick(object sender, ItemClickEventArgs e)
         {
-            showUserControl(new frmNhapMH(), btnNhapMH);
+
         }
 
         private void btnTaoTK_ItemClick(object sender, ItemClickEventArgs e)
         {
             if (Program.role.Equals("SV")) return;
 
-            showUserControl(new frmTaoTK(), btnTaoTK);
+            Form frm = this.checkExists(typeof(frmTaoTK2));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmTaoTK2 f = new frmTaoTK2();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btnSinhVien_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            
         }
     }
 }

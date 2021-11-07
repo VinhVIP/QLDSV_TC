@@ -1,14 +1,14 @@
 ﻿
 namespace QLDSV_TC
 {
-    partial class frmNhapMH
+    partial class frmMH
     {
-        /// <summary> 
+        /// <summary>
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary> 
+        /// <summary>
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
@@ -21,10 +21,10 @@ namespace QLDSV_TC
             base.Dispose(disposing);
         }
 
-        #region Component Designer generated code
+        #region Windows Form Designer generated code
 
-        /// <summary> 
-        /// Required method for Designer support - do not modify 
+        /// <summary>
+        /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
@@ -35,19 +35,20 @@ namespace QLDSV_TC
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(382, 187);
+            this.label1.Location = new System.Drawing.Point(283, 95);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(102, 13);
+            this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Form Nhập Môn học";
+            this.label1.Text = "label1";
             // 
-            // frmNhapMH
+            // frmMH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(678, 412);
             this.Controls.Add(this.label1);
-            this.Name = "frmNhapMH";
-            this.Size = new System.Drawing.Size(823, 572);
+            this.Name = "frmMH";
+            this.Text = "frmMH";
             this.ResumeLayout(false);
             this.PerformLayout();
 

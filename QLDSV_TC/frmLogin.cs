@@ -56,7 +56,10 @@ namespace QLDSV_TC
             }
 
             // Thiết lập cấu hình kết nối
-            Program.setConnectionProperties((string)comboKhoa.SelectedValue, txtTK.Text.Trim(), txtMK.Text.Trim());
+            Program.server = comboKhoa.SelectedValue.ToString();
+            Program.mLogin = txtTK.Text.Trim();
+            Program.pass = txtMK.Text.Trim();
+            
 
             if (Program.Connect() == 0)
             {
@@ -83,10 +86,17 @@ namespace QLDSV_TC
 
                     if (Program.reader.Read())
                     {
+                        Program.server = Program.reader.GetString(3);
+                        Program.mLogin = Program.loginSV;
+                        Program.pass = Program.passSV;
+
+
                         // Lưu trữ thông tin sinh viên đăng nhập
                         Program.username = Program.reader.GetString(0).Trim();
                         Program.fullName = Program.reader.GetString(1);
                         Program.role = "SV";
+
+                        Program.reader.Close();
 
                         // Hiển thị frmMain và ẩn frmLogin
                         new frmMain().Show();
@@ -104,6 +114,7 @@ namespace QLDSV_TC
             }
             else
             {
+                Program.mKhoa = comboKhoa.SelectedIndex;
                 getLoginInfo();
             }
 
@@ -117,21 +128,23 @@ namespace QLDSV_TC
         private void getLoginInfo()
         {
             Program.ExecSqlDataReader("SP_DANGNHAP", CommandType.StoredProcedure, new[] {
-                new SqlParameter("@TENLOGIN", SqlDbType.NVarChar){Value=Program.loginname}
+                new SqlParameter("@TENLOGIN", SqlDbType.NVarChar){Value=Program.mLogin}
             });
 
 
             if (Program.reader == null) return;
 
-            if (Program.reader.Read())
-            {
-                Program.username = Program.reader.GetString(0).Trim();
-                Program.fullName = Program.reader.GetString(1);
-                Program.role = Program.reader.GetString(2);
-                
-                new frmMain().Show();
-                this.Hide();
-            }
+            Program.reader.Read();
+            
+            Program.username = Program.reader.GetString(0).Trim();
+            Program.fullName = Program.reader.GetString(1);
+            Program.role = Program.reader.GetString(2);
+
+            Program.reader.Close();
+
+            new frmMain().Show();
+            this.Hide();
+            
         }
 
 

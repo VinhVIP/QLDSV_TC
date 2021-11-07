@@ -23,13 +23,21 @@ namespace QLDSV_TC
 
         public static BindingSource bindingSourcePM = new BindingSource();
 
+        public static int mKhoa = 0;
+
         public static String server = "";
-        public static String loginname = "";
+        public static String mLogin = "";
         public static String username = "";
         public static String pass = "";
 
         public static String fullName = "";
         public static String role = "";
+
+        public static String remoteLogin = "HTKN";
+        public static String remotePass = "123";
+
+        public static String loginDN = "";
+        public static String passDN = "";
 
         public static String loginSV = "SV";
         public static String passSV = "123456";
@@ -52,6 +60,7 @@ namespace QLDSV_TC
             }
             try
             {
+                connString = String.Format(connTemplate, server, dbName, mLogin, pass);
                 conn.ConnectionString = connString;
                 conn.Open();
                 return 1;
@@ -87,7 +96,7 @@ namespace QLDSV_TC
         public static void setConnectionProperties(String serverName, String login, String password)
         {
             server = serverName;
-            loginname = login;
+            mLogin = login;
             pass = password;
 
             connString =  String.Format(connTemplate, serverName, dbName, login, password);

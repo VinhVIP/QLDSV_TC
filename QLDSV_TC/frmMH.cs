@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace QLDSV_TC
 {
-    public partial class frmNhapMH : DevExpress.XtraEditors.XtraUserControl
+    public partial class frmMH : DevExpress.XtraEditors.XtraForm
     {
-        public frmNhapMH()
+        public frmMH()
         {
             InitializeComponent();
         }

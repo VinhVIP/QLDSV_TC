@@ -10,7 +10,7 @@ GO
 
 CREATE PROCEDURE [dbo].[SP_LayDSGV] as 
 begin
-	select MAGV, (TRIM(MAGV)+' - '+HO+' '+TEN) as HOTEN from GIANGVIEN
+	select MAGV, (RTRIM(LTRIM(MAGV))+' - '+HO+' '+TEN) as HOTEN from GIANGVIEN
 end
 GO
 

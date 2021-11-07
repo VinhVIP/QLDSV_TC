@@ -112,6 +112,7 @@ namespace QLDSV_TC
             // 
             // comboKhoa
             // 
+            this.comboKhoa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboKhoa.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboKhoa.FormattingEnabled = true;
             this.comboKhoa.Location = new System.Drawing.Point(286, 136);
