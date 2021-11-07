@@ -17,7 +17,7 @@ namespace QLDSV_TC
 
         public static SqlConnection conn = new SqlConnection();
         public static String connString = "";
-        public static String connPublisher = "Data Source=VINH;Initial Catalog=QLDSV_TC;Persist Security Info=True;User ID=sa;Password=123;Connection Timeout=5";
+        public static String connPublisher = "Data Source=localhost;Initial Catalog=QLDSV_TC;Persist Security Info=True;User ID=sa;Password=123456;Connection Timeout=5";
         public static String connTemplate = "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3};Connection Timeout=5";
         public static String dbName = "QLDSV_TC";
 
@@ -34,7 +34,7 @@ namespace QLDSV_TC
         public static String role = "";
 
         public static String remoteLogin = "HTKN";
-        public static String remotePass = "123";
+        public static String remotePass = "123456";
 
         public static String loginDN = "";
         public static String passDN = "";

@@ -96,12 +96,39 @@ namespace QLDSV_TC
 
         private void btnXoaSV_Click(object sender, EventArgs e)
         {
+            int removePos = bdsSV.Position;
+            if(removePos != -1)
+            {
+                bdsSV.RemoveAt(removePos);
+            }
 
+     
         }
 
         private void btnThemSV_Click(object sender, EventArgs e)
         {
             bdsSV.AddNew();
+
+            // gcSV.Rows.Add("D21", "N21", "Tran", "Vinh", true, "HCM", "01/01/2000", false, "");
+
+            DataView dv = (DataView)gcSV.DataSource;
+
+            DataTable dataTable = ((DataView)gcSV.DataSource).Table;
+
+            DataRow drToAdd = dataTable.NewRow();
+
+            drToAdd["MALOP"] = "Value1";
+            drToAdd["MASV"] = "Value2";
+            drToAdd["HO"] = "Value2";
+            drToAdd["TEN"] = "Value2";
+            drToAdd["PHAI"] = true;
+            drToAdd["DIACHI"] = "Value2";
+            drToAdd["NGAYSINH"] = "01/01/2000";
+            drToAdd["DANGHIHOC"] = false;
+            drToAdd["PASSWORD"] = "Value2";
+
+            dataTable.Rows.Add(drToAdd);
+            dataTable.AcceptChanges();
         }
 
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

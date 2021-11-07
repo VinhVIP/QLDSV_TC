@@ -70,17 +70,16 @@ namespace QLDSV_TC
             this.txtKhoaHoc = new DevExpress.XtraEditors.TextEdit();
             this.txtTenLop = new DevExpress.XtraEditors.TextEdit();
             this.txtMaLop = new DevExpress.XtraEditors.TextEdit();
-            this.gcSV = new DevExpress.XtraGrid.GridControl();
-            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colMASV = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colHO = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colTEN = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colPHAI = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDIACHI = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colNGAYSINH = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colMALOP1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDANGHIHOC = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colPASSWORD = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gcSV = new System.Windows.Forms.DataGridView();
+            this.mALOPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mASVDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tENDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pHAIDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dIACHIDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nGAYSINHDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dANGHIHOCDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.pASSWORDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             mALOPLabel = new System.Windows.Forms.Label();
             tENLOPLabel = new System.Windows.Forms.Label();
             kHOAHOCLabel = new System.Windows.Forms.Label();
@@ -101,7 +100,6 @@ namespace QLDSV_TC
             ((System.ComponentModel.ISupportInitialize)(this.txtTenLop.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaLop.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcSV)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // mALOPLabel
@@ -453,94 +451,78 @@ namespace QLDSV_TC
             // 
             // gcSV
             // 
+            this.gcSV.AutoGenerateColumns = false;
+            this.gcSV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gcSV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.mALOPDataGridViewTextBoxColumn,
+            this.mASVDataGridViewTextBoxColumn,
+            this.hODataGridViewTextBoxColumn,
+            this.tENDataGridViewTextBoxColumn,
+            this.pHAIDataGridViewCheckBoxColumn,
+            this.dIACHIDataGridViewTextBoxColumn,
+            this.nGAYSINHDataGridViewTextBoxColumn,
+            this.dANGHIHOCDataGridViewCheckBoxColumn,
+            this.pASSWORDDataGridViewTextBoxColumn});
             this.gcSV.DataSource = this.bdsSV;
             this.gcSV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gcSV.Location = new System.Drawing.Point(284, 310);
-            this.gcSV.MainView = this.gridView2;
-            this.gcSV.MenuManager = this.barManager2;
             this.gcSV.Name = "gcSV";
             this.gcSV.Size = new System.Drawing.Size(971, 435);
-            this.gcSV.TabIndex = 40;
-            this.gcSV.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView2});
+            this.gcSV.TabIndex = 45;
             // 
-            // gridView2
+            // mALOPDataGridViewTextBoxColumn
             // 
-            this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colMASV,
-            this.colHO,
-            this.colTEN,
-            this.colPHAI,
-            this.colDIACHI,
-            this.colNGAYSINH,
-            this.colMALOP1,
-            this.colDANGHIHOC,
-            this.colPASSWORD});
-            this.gridView2.GridControl = this.gcSV;
-            this.gridView2.Name = "gridView2";
+            this.mALOPDataGridViewTextBoxColumn.DataPropertyName = "MALOP";
+            this.mALOPDataGridViewTextBoxColumn.HeaderText = "MALOP";
+            this.mALOPDataGridViewTextBoxColumn.Name = "mALOPDataGridViewTextBoxColumn";
             // 
-            // colMASV
+            // mASVDataGridViewTextBoxColumn
             // 
-            this.colMASV.FieldName = "MASV";
-            this.colMASV.Name = "colMASV";
-            this.colMASV.Visible = true;
-            this.colMASV.VisibleIndex = 0;
+            this.mASVDataGridViewTextBoxColumn.DataPropertyName = "MASV";
+            this.mASVDataGridViewTextBoxColumn.HeaderText = "MASV";
+            this.mASVDataGridViewTextBoxColumn.Name = "mASVDataGridViewTextBoxColumn";
             // 
-            // colHO
+            // hODataGridViewTextBoxColumn
             // 
-            this.colHO.FieldName = "HO";
-            this.colHO.Name = "colHO";
-            this.colHO.Visible = true;
-            this.colHO.VisibleIndex = 1;
+            this.hODataGridViewTextBoxColumn.DataPropertyName = "HO";
+            this.hODataGridViewTextBoxColumn.HeaderText = "HO";
+            this.hODataGridViewTextBoxColumn.Name = "hODataGridViewTextBoxColumn";
             // 
-            // colTEN
+            // tENDataGridViewTextBoxColumn
             // 
-            this.colTEN.FieldName = "TEN";
-            this.colTEN.Name = "colTEN";
-            this.colTEN.Visible = true;
-            this.colTEN.VisibleIndex = 2;
+            this.tENDataGridViewTextBoxColumn.DataPropertyName = "TEN";
+            this.tENDataGridViewTextBoxColumn.HeaderText = "TEN";
+            this.tENDataGridViewTextBoxColumn.Name = "tENDataGridViewTextBoxColumn";
             // 
-            // colPHAI
+            // pHAIDataGridViewCheckBoxColumn
             // 
-            this.colPHAI.FieldName = "PHAI";
-            this.colPHAI.Name = "colPHAI";
-            this.colPHAI.Visible = true;
-            this.colPHAI.VisibleIndex = 3;
+            this.pHAIDataGridViewCheckBoxColumn.DataPropertyName = "PHAI";
+            this.pHAIDataGridViewCheckBoxColumn.HeaderText = "PHAI";
+            this.pHAIDataGridViewCheckBoxColumn.Name = "pHAIDataGridViewCheckBoxColumn";
             // 
-            // colDIACHI
+            // dIACHIDataGridViewTextBoxColumn
             // 
-            this.colDIACHI.FieldName = "DIACHI";
-            this.colDIACHI.Name = "colDIACHI";
-            this.colDIACHI.Visible = true;
-            this.colDIACHI.VisibleIndex = 4;
+            this.dIACHIDataGridViewTextBoxColumn.DataPropertyName = "DIACHI";
+            this.dIACHIDataGridViewTextBoxColumn.HeaderText = "DIACHI";
+            this.dIACHIDataGridViewTextBoxColumn.Name = "dIACHIDataGridViewTextBoxColumn";
             // 
-            // colNGAYSINH
+            // nGAYSINHDataGridViewTextBoxColumn
             // 
-            this.colNGAYSINH.FieldName = "NGAYSINH";
-            this.colNGAYSINH.Name = "colNGAYSINH";
-            this.colNGAYSINH.Visible = true;
-            this.colNGAYSINH.VisibleIndex = 5;
+            this.nGAYSINHDataGridViewTextBoxColumn.DataPropertyName = "NGAYSINH";
+            this.nGAYSINHDataGridViewTextBoxColumn.HeaderText = "NGAYSINH";
+            this.nGAYSINHDataGridViewTextBoxColumn.Name = "nGAYSINHDataGridViewTextBoxColumn";
             // 
-            // colMALOP1
+            // dANGHIHOCDataGridViewCheckBoxColumn
             // 
-            this.colMALOP1.FieldName = "MALOP";
-            this.colMALOP1.Name = "colMALOP1";
-            this.colMALOP1.Visible = true;
-            this.colMALOP1.VisibleIndex = 6;
+            this.dANGHIHOCDataGridViewCheckBoxColumn.DataPropertyName = "DANGHIHOC";
+            this.dANGHIHOCDataGridViewCheckBoxColumn.HeaderText = "DANGHIHOC";
+            this.dANGHIHOCDataGridViewCheckBoxColumn.Name = "dANGHIHOCDataGridViewCheckBoxColumn";
             // 
-            // colDANGHIHOC
+            // pASSWORDDataGridViewTextBoxColumn
             // 
-            this.colDANGHIHOC.FieldName = "DANGHIHOC";
-            this.colDANGHIHOC.Name = "colDANGHIHOC";
-            this.colDANGHIHOC.Visible = true;
-            this.colDANGHIHOC.VisibleIndex = 7;
-            // 
-            // colPASSWORD
-            // 
-            this.colPASSWORD.FieldName = "PASSWORD";
-            this.colPASSWORD.Name = "colPASSWORD";
-            this.colPASSWORD.Visible = true;
-            this.colPASSWORD.VisibleIndex = 8;
+            this.pASSWORDDataGridViewTextBoxColumn.DataPropertyName = "PASSWORD";
+            this.pASSWORDDataGridViewTextBoxColumn.HeaderText = "PASSWORD";
+            this.pASSWORDDataGridViewTextBoxColumn.Name = "pASSWORDDataGridViewTextBoxColumn";
             // 
             // frmSV
             // 
@@ -577,7 +559,6 @@ namespace QLDSV_TC
             ((System.ComponentModel.ISupportInitialize)(this.txtTenLop.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaLop.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcSV)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -611,17 +592,6 @@ namespace QLDSV_TC
         private System.Windows.Forms.ToolStripMenuItem btnXoaSV;
         private DevExpress.XtraGrid.GridControl gcLOP;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraGrid.GridControl gcSV;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
-        private DevExpress.XtraGrid.Columns.GridColumn colMASV;
-        private DevExpress.XtraGrid.Columns.GridColumn colHO;
-        private DevExpress.XtraGrid.Columns.GridColumn colTEN;
-        private DevExpress.XtraGrid.Columns.GridColumn colPHAI;
-        private DevExpress.XtraGrid.Columns.GridColumn colDIACHI;
-        private DevExpress.XtraGrid.Columns.GridColumn colNGAYSINH;
-        private DevExpress.XtraGrid.Columns.GridColumn colMALOP1;
-        private DevExpress.XtraGrid.Columns.GridColumn colDANGHIHOC;
-        private DevExpress.XtraGrid.Columns.GridColumn colPASSWORD;
         private DevExpress.XtraEditors.PanelControl panelLop;
         private DevExpress.XtraEditors.TextEdit txtMaKhoa;
         private DevExpress.XtraEditors.TextEdit txtKhoaHoc;
@@ -631,5 +601,15 @@ namespace QLDSV_TC
         private DevExpress.XtraGrid.Columns.GridColumn colTENLOP;
         private DevExpress.XtraGrid.Columns.GridColumn colKHOAHOC;
         private DevExpress.XtraGrid.Columns.GridColumn colMAKHOA;
+        private System.Windows.Forms.DataGridView gcSV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mALOPDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mASVDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn hODataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tENDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn pHAIDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dIACHIDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nGAYSINHDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn dANGHIHOCDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pASSWORDDataGridViewTextBoxColumn;
     }
 }
