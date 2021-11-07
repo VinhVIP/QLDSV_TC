@@ -12,14 +12,14 @@ using System.Windows.Forms;
 
 namespace QLDSV_TC
 {
-    public partial class frmTaoTK : DevExpress.XtraEditors.XtraUserControl
+    public partial class frmTaoTK : DevExpress.XtraEditors.XtraForm
     {
         public frmTaoTK()
         {
             InitializeComponent();
         }
 
-        private void frmTaoTK_Load(object sender, EventArgs e)
+        private void frmTaoTK2_Load(object sender, EventArgs e)
         {
             layDSGV();
             initNhom();
@@ -42,7 +42,7 @@ namespace QLDSV_TC
                 comboBoxNhom.Items.Add("PGV");
                 comboBoxNhom.Items.Add("KHOA");
             }
-            else if(Program.role.Equals("KHOA"))
+            else if (Program.role.Equals("KHOA"))
             {
                 comboBoxNhom.Items.Add("KHOA");
             }
@@ -56,7 +56,7 @@ namespace QLDSV_TC
 
         private void btnTaoTK_Click(object sender, EventArgs e)
         {
-            if(txtTK.Text.Trim().Length == 0 || txtMK.Text.Trim().Length == 0)
+            if (txtTK.Text.Trim().Length == 0 || txtMK.Text.Trim().Length == 0)
             {
                 MessageBox.Show("Tài khoản và mật khẩu không được bỏ trống!", "Thông báo", MessageBoxButtons.OK);
                 return;
@@ -81,12 +81,10 @@ namespace QLDSV_TC
                 new SqlParameter("@ROLE", SqlDbType.VarChar) { Value=((String)comboBoxNhom.SelectedItem).Trim() },
             });
 
-            if(Program.reader != null)
+            if (Program.reader != null)
             {
                 MessageBox.Show("Tạo tài khoản thành công!", "Thống báo", MessageBoxButtons.OK);
             }
         }
-
-        
     }
 }

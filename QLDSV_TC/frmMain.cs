@@ -64,11 +64,11 @@ namespace QLDSV_TC
         {
             if (Program.role.Equals("SV")) return;
 
-            Form frm = this.checkExists(typeof(frmTaoTK2));
+            Form frm = this.checkExists(typeof(frmTaoTK));
             if (frm != null) frm.Activate();
             else
             {
-                frmTaoTK2 f = new frmTaoTK2();
+                frmTaoTK f = new frmTaoTK();
                 f.MdiParent = this;
                 f.Show();
             }

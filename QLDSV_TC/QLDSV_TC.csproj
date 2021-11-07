@@ -54,16 +54,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DS_LOP.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DS_LOP.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="DS_LOP1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DS_LOP1.xsd</DependentUpon>
-    </Compile>
     <Compile Include="DS_SV.cs">
       <DependentUpon>DS_SV.xsd</DependentUpon>
     </Compile>
@@ -78,12 +68,6 @@
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmLop.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmLop.Designer.cs">
-      <DependentUpon>frmLop.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,12 +80,6 @@
     <Compile Include="frmMH.Designer.cs">
       <DependentUpon>frmMH.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmNhapLop.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmNhapLop.Designer.cs">
-      <DependentUpon>frmNhapLop.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmSV.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,24 +87,15 @@
       <DependentUpon>frmSV.cs</DependentUpon>
     </Compile>
     <Compile Include="frmTaoTK.cs">
-      <SubType>UserControl</SubType>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmTaoTK.Designer.cs">
       <DependentUpon>frmTaoTK.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmTaoTK2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmTaoTK2.Designer.cs">
-      <DependentUpon>frmTaoTK2.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmLop.resx">
-      <DependentUpon>frmLop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
@@ -134,17 +103,11 @@
     <EmbeddedResource Include="frmMH.resx">
       <DependentUpon>frmMH.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmNhapLop.resx">
-      <DependentUpon>frmNhapLop.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmSV.resx">
       <DependentUpon>frmSV.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTaoTK.resx">
       <DependentUpon>frmTaoTK.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmTaoTK2.resx">
-      <DependentUpon>frmTaoTK2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -156,28 +119,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="DS_LOP.xsc">
-      <DependentUpon>DS_LOP.xsd</DependentUpon>
-    </None>
-    <None Include="DS_LOP.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DS_LOP.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="DS_LOP.xss">
-      <DependentUpon>DS_LOP.xsd</DependentUpon>
-    </None>
-    <None Include="DS_LOP1.xsc">
-      <DependentUpon>DS_LOP1.xsd</DependentUpon>
-    </None>
-    <None Include="DS_LOP1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DS_LOP1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="DS_LOP1.xss">
-      <DependentUpon>DS_LOP1.xsd</DependentUpon>
-    </None>
     <None Include="DS_SV.xsc">
       <DependentUpon>DS_SV.xsd</DependentUpon>
     </None>
