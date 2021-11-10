@@ -109,26 +109,27 @@ namespace QLDSV_TC
         {
             bdsSV.AddNew();
 
+
             // gcSV.Rows.Add("D21", "N21", "Tran", "Vinh", true, "HCM", "01/01/2000", false, "");
 
-            DataView dv = (DataView)gcSV.DataSource;
+            //DataView dv = (DataView)gcSV.DataSource;
 
-            DataTable dataTable = ((DataView)gcSV.DataSource).Table;
+            //DataTable dataTable = ((DataView)gcSV.DataSource).Table;
 
-            DataRow drToAdd = dataTable.NewRow();
+            //DataRow drToAdd = dataTable.NewRow();
 
-            drToAdd["MALOP"] = "Value1";
-            drToAdd["MASV"] = "Value2";
-            drToAdd["HO"] = "Value2";
-            drToAdd["TEN"] = "Value2";
-            drToAdd["PHAI"] = true;
-            drToAdd["DIACHI"] = "Value2";
-            drToAdd["NGAYSINH"] = "01/01/2000";
-            drToAdd["DANGHIHOC"] = false;
-            drToAdd["PASSWORD"] = "Value2";
+            //drToAdd["MALOP"] = "Value1";
+            //drToAdd["MASV"] = "Value2";
+            //drToAdd["HO"] = "Value2";
+            //drToAdd["TEN"] = "Value2";
+            //drToAdd["PHAI"] = true;
+            //drToAdd["DIACHI"] = "Value2";
+            //drToAdd["NGAYSINH"] = "01/01/2000";
+            //drToAdd["DANGHIHOC"] = false;
+            //drToAdd["PASSWORD"] = "Value2";
 
-            dataTable.Rows.Add(drToAdd);
-            dataTable.AcceptChanges();
+            //dataTable.Rows.Add(drToAdd);
+            //dataTable.AcceptChanges();
         }
 
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -150,27 +151,27 @@ namespace QLDSV_TC
         private void btnGhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
 
-            //// Kiểm tra các ràng buộc
-            //if (txtMaLop.Text.Trim() == "")
-            //{
-            //    MessageBox.Show("Mã lớp không được bỏ trống!", "Thông báo", MessageBoxButtons.OK);
-            //    txtMaLop.Focus();
-            //    return;
-            //}
-            //if (txtTenLop.Text.Trim() == "")
-            //{
-            //    MessageBox.Show("Tên lớp không được bỏ trống!", "Thông báo", MessageBoxButtons.OK);
-            //    txtTenLop.Focus();
-            //    return;
-            //}
-            //if (txtKhoaHoc.Text.Trim() == "")
-            //{
-            //    MessageBox.Show("Khóa học không được bỏ trống!", "Thông báo", MessageBoxButtons.OK);
-            //    txtKhoaHoc.Focus();
-            //    return;
-            //}
+            // Kiểm tra các ràng buộc
+            if (txtMaLop.Text.Trim() == "")
+            {
+                MessageBox.Show("Mã lớp không được bỏ trống!", "Thông báo", MessageBoxButtons.OK);
+                txtMaLop.Focus();
+                return;
+            }
+            if (txtTenLop.Text.Trim() == "")
+            {
+                MessageBox.Show("Tên lớp không được bỏ trống!", "Thông báo", MessageBoxButtons.OK);
+                txtTenLop.Focus();
+                return;
+            }
+            if (txtKhoaHoc.Text.Trim() == "")
+            {
+                MessageBox.Show("Khóa học không được bỏ trống!", "Thông báo", MessageBoxButtons.OK);
+                txtKhoaHoc.Focus();
+                return;
+            }
 
-            //// Kiêm tra thêm / hiệu chỉnh
+            // Kiêm tra thêm / hiệu chỉnh
             //if (lastAction == "add")
             //{
             //    if (isMaLopExists(txtMaLop.Text.Trim())) return;
@@ -282,6 +283,51 @@ namespace QLDSV_TC
             }
 
             if (bdsLOP.Count == 0) btnXoa.Enabled = false;
+        }
+
+        private void gcSV_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            //gcSV.Rows[e.RowIndex].ErrorText = "Lỗi rồi bạn ơi";
+            //e.Cancel = true;
+        }
+
+        private void gcSV_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            //var value = gcSV.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+            //Console.WriteLine(value);
+
+            //switch (e.ColumnIndex)
+            //{
+            //    case 1:
+            //        if(value.ToString().Length == 0)
+            //        {
+            //            MessageBox.Show("Mã SV không được bỏ trống", "Thông báo", MessageBoxButtons.OK);
+            //            gcSV.CurrentCell = gcSV.Rows[e.RowIndex].Cells[e.ColumnIndex];
+            //            gcSV.BeginEdit();
+            //        }  
+            //        break;
+            //    case 2:
+            //        MessageBox.Show("Họ không được bỏ trống", "Thông báo", MessageBoxButtons.OK);
+            //        break;
+            //}
+        }
+
+        private void gcSV_RowValidating(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            //var a = gcSV.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+            //Console.WriteLine(a);
+           
+        }
+
+        private void gcSV_KeyDown(object sender, KeyEventArgs e)
+        {
+            //if (e.KeyCode == Keys.Tab && gcSV.CurrentCell.ColumnIndex == 1)
+            //{
+            //    e.Handled = true;
+            //    DataGridViewCell cell = gcSV.Rows[0].Cells[0];
+            //    gcSV.CurrentCell = cell;
+            //    gcSV.BeginEdit(true);
+            //}
         }
     }
 }

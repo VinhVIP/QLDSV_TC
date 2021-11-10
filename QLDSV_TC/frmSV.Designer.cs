@@ -463,12 +463,18 @@ namespace QLDSV_TC
             this.nGAYSINHDataGridViewTextBoxColumn,
             this.dANGHIHOCDataGridViewCheckBoxColumn,
             this.pASSWORDDataGridViewTextBoxColumn});
+            this.gcSV.ContextMenuStrip = this.contextMenuStrip1;
             this.gcSV.DataSource = this.bdsSV;
             this.gcSV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gcSV.Location = new System.Drawing.Point(284, 310);
             this.gcSV.Name = "gcSV";
+            this.gcSV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.gcSV.Size = new System.Drawing.Size(971, 435);
             this.gcSV.TabIndex = 45;
+            this.gcSV.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.gcSV_CellEndEdit);
+            this.gcSV.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.gcSV_DataError);
+            this.gcSV.RowValidating += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.gcSV_RowValidating);
+            this.gcSV.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gcSV_KeyDown);
             // 
             // mALOPDataGridViewTextBoxColumn
             // 

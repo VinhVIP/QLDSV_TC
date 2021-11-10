@@ -78,5 +78,17 @@ namespace QLDSV_TC
         {
             
         }
+
+        private void btnNhapDiem_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form frm = this.checkExists(typeof(frmDiem));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmDiem f = new frmDiem();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
     }
 }
