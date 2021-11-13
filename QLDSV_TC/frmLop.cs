@@ -21,6 +21,9 @@ namespace QLDSV_TC
         private int lastLopPosition;
         private bool committed = true;
 
+        private String curServer;
+        private String curLogin, curPass;
+
         public frmLop()
         {
             InitializeComponent();
@@ -42,6 +45,10 @@ namespace QLDSV_TC
 
             maKhoa = comboKhoa.Text;
 
+            curServer = Program.server;
+            curLogin = Program.mLogin;
+            curPass = Program.pass;
+
             initState();
         }
 
@@ -58,7 +65,7 @@ namespace QLDSV_TC
                 return;
             }
 
-            Program.server = comboKhoa.SelectedValue.ToString();
+            Program.server = comboKhoa.SelectedValue.ToString();     
 
             if (comboKhoa.SelectedIndex != Program.mKhoa)
             {
@@ -70,6 +77,11 @@ namespace QLDSV_TC
                 Program.mLogin = Program.loginDN;
                 Program.pass = Program.passDN;
             }
+
+            // Lưu lại server đang thao tác
+            curServer = Program.server;
+            curLogin = Program.mLogin;
+            curPass = Program.pass;
 
             if (Program.Connect() == 0)
             {
@@ -233,6 +245,57 @@ namespace QLDSV_TC
 
                 try
                 {
+                    string maLop = txtMaLop.Text.Trim();
+
+                    // thao tác ở site hiện tại trước
+                    Program.ExecSqlDataReader("SP_TIM_LOP", CommandType.StoredProcedure, new[]{
+                        new SqlParameter("@malop", SqlDbType.NChar){Value=maLop}
+                    });
+
+                    if (Program.reader.Read())
+                    {
+                        MessageBox.Show("Mã lớp đã tồn tại, vui lòng nhập mã khác!", "Thông báo", MessageBoxButtons.OK);
+                        Program.reader.Close();
+                        return;
+                    }
+
+                    // Kiểm tra ở các site khác
+
+                    Program.mLogin = Program.remoteLogin;
+                    Program.pass = Program.remotePass;
+
+                    for (int i=0; i<Program.bdsDSKhoa.Count; i++)
+                    {
+                        string svName = ((DataRowView)Program.bdsDSKhoa[i])["TENSERVER"].ToString();
+                        if (svName != curServer)
+                        {
+                            Program.server = svName;
+
+                            if(Program.Connect() == 0)
+                            {
+                                MessageBox.Show("Lỗi kết nối tới site khác!", "Thông báo", MessageBoxButtons.OK);
+                                connectLoginSite();
+                                return;
+                            }
+
+                            Program.ExecSqlDataReader("SP_TIM_LOP", CommandType.StoredProcedure, new[]{
+                                new SqlParameter("@malop", SqlDbType.NChar){Value=maLop}
+                            });
+
+                            if (Program.reader.Read())
+                            {
+                                MessageBox.Show("Mã lớp đã tồn tại, vui lòng nhập mã khác!", "Thông báo", MessageBoxButtons.OK);
+                                Program.reader.Close();
+                                connectLoginSite();
+                                return;
+                            }
+                        }
+                                 
+                    }
+
+                    // Nếu tất cả các site đều k có thì tiến hành thêm ở site hiện tại
+                    connectLoginSite();
+
                     // DS_SV.AcceptChanges();
                     bdsLOP.EndEdit();
 
@@ -334,6 +397,15 @@ namespace QLDSV_TC
 
             }
             
+        }
+
+        private void connectLoginSite()
+        {
+            Program.server = curServer;
+            Program.mLogin = curLogin;
+            Program.pass = curPass;
+
+            Program.Connect();
         }
 
         /**
