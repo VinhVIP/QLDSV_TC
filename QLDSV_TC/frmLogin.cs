@@ -23,6 +23,16 @@ namespace QLDSV_TC
         private void frmLogin_Load(object sender, EventArgs e)
         {
             LayDSPM();
+            LayDSKhoa();
+        }
+
+        private void LayDSKhoa()
+        {
+            if (Program.ConnectPublisher() == 0) return;
+            DataTable dt = Program.ExecSqlDataTable("EXEC SP_LAY_DS_KHOA");
+
+            // Lưu trữ danh sách khoa
+            Program.bdsDSKhoa.DataSource = dt;
         }
 
         /**
@@ -65,8 +75,8 @@ namespace QLDSV_TC
             {
                 // Nếu login thất bại thì kiểm tra xem login đó có phải là của sinh viên hay không
                 // Mã SV có 10 kí tự
-                if (txtTK.Text.Trim().Length == 10)
-                {
+                //if (txtTK.Text.Trim().Length == 10)
+                //{
                     // Kết nối về Site chủ
                     if (Program.ConnectPublisher() == 0)
                     {
@@ -106,11 +116,11 @@ namespace QLDSV_TC
                     {
                         MessageBox.Show("Sai thông tin đăng nhập", "Info");
                     }
-                }
-                else
-                {
-                    MessageBox.Show("Sai thông tin đăng nhập", "Info");
-                }
+                //}
+                //else
+                //{
+                //    MessageBox.Show("Sai thông tin đăng nhập", "Info");
+                //}
             }
             else
             {

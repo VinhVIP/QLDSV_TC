@@ -25,7 +25,7 @@ namespace QLDSV_TC
 
         private void frmDiem_Load(object sender, EventArgs e)
         {
-            comboKhoa.DataSource = Program.bindingSourcePM;
+            comboKhoa.DataSource = Program.bdsDSKhoa;
             comboKhoa.DisplayMember = "TENPM";
             comboKhoa.ValueMember = "TENSERVER";
 
@@ -75,10 +75,8 @@ namespace QLDSV_TC
         {
             try
             {
-                Console.WriteLine("Start");
                 this.SP_LAY_DS_LTCTableAdapter.Connection.ConnectionString = Program.connString;
                 this.SP_LAY_DS_LTCTableAdapter.Fill(this.DS_LTC.SP_LAY_DS_LTC, comboNK.Text, int.Parse(comboHK.Text));
-                Console.WriteLine("End");
             }
             catch (System.Exception ex)
             {

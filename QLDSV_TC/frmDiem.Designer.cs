@@ -251,6 +251,9 @@ namespace QLDSV_TC
             // 
             // gcDiem
             // 
+            this.gcDiem.AllowUserToAddRows = false;
+            this.gcDiem.AllowUserToDeleteRows = false;
+            this.gcDiem.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gcDiem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gcDiem.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gcDiem.Location = new System.Drawing.Point(680, 76);

@@ -45,11 +45,11 @@ namespace QLDSV_TC
 
         private void btnNhapLop_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Form frm = this.checkExists(typeof(frmSV));
+            Form frm = this.checkExists(typeof(frmLop));
             if (frm != null) frm.Activate();
             else
             {
-                frmSV f = new frmSV();
+                frmLop f = new frmLop();
                 f.MdiParent = this;
                 f.Show();
             }
@@ -57,7 +57,7 @@ namespace QLDSV_TC
 
         private void btnNhapMH_ItemClick(object sender, ItemClickEventArgs e)
         {
-
+            
         }
 
         private void btnTaoTK_ItemClick(object sender, ItemClickEventArgs e)
