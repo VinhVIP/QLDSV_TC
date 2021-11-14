@@ -65,6 +65,23 @@ SELECT MALOP, TENLOP, KHOAHOC, MAKHOA FROM LOP WHERE (MALOP = @MALOP)</CommandTe
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="MONHOCTableAdapter" GeneratorDataComponentClassName="MONHOCTableAdapter" Name="MONHOC" UserDataComponentName="MONHOCTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="QLDSV_TCConnectionString (Settings)" DbObjectName="QLDSV_TC.dbo.MONHOC" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT MAMH, TENMH FROM MONHOC ORDER BY TENMH</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="MAMH" DataSetColumn="MAMH" />
+              <Mapping SourceColumn="TENMH" DataSetColumn="TENMH" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -73,7 +90,7 @@ SELECT MALOP, TENLOP, KHOAHOC, MAKHOA FROM LOP WHERE (MALOP = @MALOP)</CommandTe
   <xs:element name="DS_LOP" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DS_LOP" msprop:Generator_UserDSName="DS_LOP">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="LOP" msprop:Generator_TableClassName="LOPDataTable" msprop:Generator_TableVarName="tableLOP" msprop:Generator_TablePropName="LOP" msprop:Generator_RowDeletingName="LOPRowDeleting" msprop:Generator_RowChangingName="LOPRowChanging" msprop:Generator_RowEvHandlerName="LOPRowChangeEventHandler" msprop:Generator_RowDeletedName="LOPRowDeleted" msprop:Generator_UserTableName="LOP" msprop:Generator_RowChangedName="LOPRowChanged" msprop:Generator_RowEvArgName="LOPRowChangeEvent" msprop:Generator_RowClassName="LOPRow">
+        <xs:element name="LOP" msprop:Generator_TableClassName="LOPDataTable" msprop:Generator_TableVarName="tableLOP" msprop:Generator_RowChangedName="LOPRowChanged" msprop:Generator_TablePropName="LOP" msprop:Generator_RowDeletingName="LOPRowDeleting" msprop:Generator_RowChangingName="LOPRowChanging" msprop:Generator_RowEvHandlerName="LOPRowChangeEventHandler" msprop:Generator_RowDeletedName="LOPRowDeleted" msprop:Generator_RowClassName="LOPRow" msprop:Generator_UserTableName="LOP" msprop:Generator_RowEvArgName="LOPRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="MALOP" msprop:Generator_ColumnVarNameInTable="columnMALOP" msprop:Generator_ColumnPropNameInRow="MALOP" msprop:Generator_ColumnPropNameInTable="MALOPColumn" msprop:Generator_UserColumnName="MALOP">
@@ -107,11 +124,35 @@ SELECT MALOP, TENLOP, KHOAHOC, MAKHOA FROM LOP WHERE (MALOP = @MALOP)</CommandTe
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="MONHOC" msprop:Generator_TableClassName="MONHOCDataTable" msprop:Generator_TableVarName="tableMONHOC" msprop:Generator_TablePropName="MONHOC" msprop:Generator_RowDeletingName="MONHOCRowDeleting" msprop:Generator_RowChangingName="MONHOCRowChanging" msprop:Generator_RowEvHandlerName="MONHOCRowChangeEventHandler" msprop:Generator_RowDeletedName="MONHOCRowDeleted" msprop:Generator_UserTableName="MONHOC" msprop:Generator_RowChangedName="MONHOCRowChanged" msprop:Generator_RowEvArgName="MONHOCRowChangeEvent" msprop:Generator_RowClassName="MONHOCRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MAMH" msprop:Generator_ColumnVarNameInTable="columnMAMH" msprop:Generator_ColumnPropNameInRow="MAMH" msprop:Generator_ColumnPropNameInTable="MAMHColumn" msprop:Generator_UserColumnName="MAMH">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TENMH" msprop:Generator_ColumnVarNameInTable="columnTENMH" msprop:Generator_ColumnPropNameInRow="TENMH" msprop:Generator_ColumnPropNameInTable="TENMHColumn" msprop:Generator_UserColumnName="TENMH">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:LOP" />
       <xs:field xpath="mstns:MALOP" />
+    </xs:unique>
+    <xs:unique name="MONHOC_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:MONHOC" />
+      <xs:field xpath="mstns:MAMH" />
     </xs:unique>
   </xs:element>
 </xs:schema>

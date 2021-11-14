@@ -206,12 +206,13 @@ namespace QLDSV_TC
             // 
             // btnBCDiemMH
             // 
-            this.btnBCDiemMH.Caption = "Bảng điểm Môn học";
+            this.btnBCDiemMH.Caption = "Bảng điểm Môn học 1 LTC";
             this.btnBCDiemMH.Id = 14;
             this.btnBCDiemMH.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBCDiemMH.ImageOptions.Image")));
             this.btnBCDiemMH.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnBCDiemMH.ImageOptions.LargeImage")));
-            this.btnBCDiemMH.LargeWidth = 70;
+            this.btnBCDiemMH.LargeWidth = 81;
             this.btnBCDiemMH.Name = "btnBCDiemMH";
+            this.btnBCDiemMH.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBCDiemMH_ItemClick);
             // 
             // btnBCPhieuDiem
             // 
