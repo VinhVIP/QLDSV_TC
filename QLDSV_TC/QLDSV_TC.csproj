@@ -123,11 +123,29 @@
     <Compile Include="Xfrm_BangDiemMonHoc1LTC.Designer.cs">
       <DependentUpon>Xfrm_BangDiemMonHoc1LTC.cs</DependentUpon>
     </Compile>
+    <Compile Include="Xfrm_PhieuDiemSV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Xfrm_PhieuDiemSV.Designer.cs">
+      <DependentUpon>Xfrm_PhieuDiemSV.cs</DependentUpon>
+    </Compile>
     <Compile Include="Xrpt_BangDiemMonHoc1LTC.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Xrpt_BangDiemMonHoc1LTC.Designer.cs">
       <DependentUpon>Xrpt_BangDiemMonHoc1LTC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Xrpt_Haizz.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Xrpt_Haizz.Designer.cs">
+      <DependentUpon>Xrpt_Haizz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Xrpt_PhieuDiemSV.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Xrpt_PhieuDiemSV.Designer.cs">
+      <DependentUpon>Xrpt_PhieuDiemSV.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="frmDiem.resx">
       <DependentUpon>frmDiem.cs</DependentUpon>
@@ -160,8 +178,17 @@
     <EmbeddedResource Include="Xfrm_BangDiemMonHoc1LTC.resx">
       <DependentUpon>Xfrm_BangDiemMonHoc1LTC.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Xfrm_PhieuDiemSV.resx">
+      <DependentUpon>Xfrm_PhieuDiemSV.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Xrpt_BangDiemMonHoc1LTC.resx">
       <DependentUpon>Xrpt_BangDiemMonHoc1LTC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Xrpt_Haizz.resx">
+      <DependentUpon>Xrpt_Haizz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Xrpt_PhieuDiemSV.resx">
+      <DependentUpon>Xrpt_PhieuDiemSV.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="DS_LOP.xsc">
       <DependentUpon>DS_LOP.xsd</DependentUpon>

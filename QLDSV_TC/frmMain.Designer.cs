@@ -221,6 +221,7 @@ namespace QLDSV_TC
             this.btnBCPhieuDiem.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnBCPhieuDiem.ImageOptions.LargeImage")));
             this.btnBCPhieuDiem.LargeWidth = 70;
             this.btnBCPhieuDiem.Name = "btnBCPhieuDiem";
+            this.btnBCPhieuDiem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBCPhieuDiem_ItemClick);
             // 
             // btnBCDiemTongKet
             // 
