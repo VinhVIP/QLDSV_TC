@@ -41,7 +41,7 @@ namespace QLDSV_TC
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(296, 139);
+            this.label1.Location = new System.Drawing.Point(258, 139);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(94, 18);
             this.label1.TabIndex = 0;
@@ -49,17 +49,17 @@ namespace QLDSV_TC
             // 
             // txtMASV
             // 
-            this.txtMASV.Location = new System.Drawing.Point(408, 136);
+            this.txtMASV.Location = new System.Drawing.Point(366, 136);
             this.txtMASV.Name = "txtMASV";
             this.txtMASV.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMASV.Properties.Appearance.Options.UseFont = true;
-            this.txtMASV.Size = new System.Drawing.Size(175, 24);
+            this.txtMASV.Size = new System.Drawing.Size(217, 24);
             this.txtMASV.TabIndex = 1;
             // 
             // btnPreview
             // 
             this.btnPreview.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPreview.Location = new System.Drawing.Point(366, 206);
+            this.btnPreview.Location = new System.Drawing.Point(388, 207);
             this.btnPreview.Name = "btnPreview";
             this.btnPreview.Size = new System.Drawing.Size(144, 27);
             this.btnPreview.TabIndex = 2;

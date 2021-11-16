@@ -231,6 +231,7 @@ namespace QLDSV_TC
             this.btnBCDiemTongKet.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnBCDiemTongKet.ImageOptions.LargeImage")));
             this.btnBCDiemTongKet.LargeWidth = 70;
             this.btnBCDiemTongKet.Name = "btnBCDiemTongKet";
+            this.btnBCDiemTongKet.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBCDiemTongKet_ItemClick);
             // 
             // btnBCDongHP
             // 

@@ -114,5 +114,17 @@ namespace QLDSV_TC
                 f.Show();
             }
         }
+
+        private void btnBCDiemTongKet_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form frm = this.checkExists(typeof(Xfrm_BangDiemTongKetLop));
+            if (frm != null) frm.Activate();
+            else
+            {
+                Xfrm_BangDiemTongKetLop f = new Xfrm_BangDiemTongKetLop();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
     }
 }

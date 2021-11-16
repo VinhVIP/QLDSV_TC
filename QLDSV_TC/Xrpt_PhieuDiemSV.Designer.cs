@@ -234,29 +234,29 @@ namespace QLDSV_TC
             this.xrLabel3.Multiline = true;
             this.xrLabel3.Name = "xrLabel3";
             this.xrLabel3.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel3.SizeF = new System.Drawing.SizeF(97.91666F, 23F);
+            this.xrLabel3.SizeF = new System.Drawing.SizeF(53.125F, 23F);
             this.xrLabel3.StylePriority.UseFont = false;
             this.xrLabel3.Text = "Khoa:";
             // 
             // labelKhoa
             // 
             this.labelKhoa.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.labelKhoa.LocationFloat = new DevExpress.Utils.PointFloat(469.7918F, 107.9167F);
+            this.labelKhoa.LocationFloat = new DevExpress.Utils.PointFloat(425F, 107.9167F);
             this.labelKhoa.Multiline = true;
             this.labelKhoa.Name = "labelKhoa";
             this.labelKhoa.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.labelKhoa.SizeF = new System.Drawing.SizeF(170.2081F, 23F);
+            this.labelKhoa.SizeF = new System.Drawing.SizeF(214.9999F, 23F);
             this.labelKhoa.StylePriority.UseFont = false;
             this.labelKhoa.Text = "labelKhoa";
             // 
             // labelLop
             // 
             this.labelLop.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.labelLop.LocationFloat = new DevExpress.Utils.PointFloat(127.0833F, 107.9167F);
+            this.labelLop.LocationFloat = new DevExpress.Utils.PointFloat(77.08334F, 107.9167F);
             this.labelLop.Multiline = true;
             this.labelLop.Name = "labelLop";
             this.labelLop.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.labelLop.SizeF = new System.Drawing.SizeF(213.5417F, 23F);
+            this.labelLop.SizeF = new System.Drawing.SizeF(263.5417F, 23F);
             this.labelLop.StylePriority.UseFont = false;
             this.labelLop.Text = "labelLop";
             // 
@@ -267,7 +267,7 @@ namespace QLDSV_TC
             this.xrLabel7.Multiline = true;
             this.xrLabel7.Name = "xrLabel7";
             this.xrLabel7.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel7.SizeF = new System.Drawing.SizeF(95.83334F, 23F);
+            this.xrLabel7.SizeF = new System.Drawing.SizeF(45.83334F, 23F);
             this.xrLabel7.StylePriority.UseFont = false;
             this.xrLabel7.Text = "Lớp:";
             // 
@@ -336,7 +336,7 @@ namespace QLDSV_TC
             // 
             this.PageFooter.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.pageInfo2});
-            this.PageFooter.HeightF = 44.62501F;
+            this.PageFooter.HeightF = 245.8333F;
             this.PageFooter.Name = "PageFooter";
             // 
             // pageInfo2
