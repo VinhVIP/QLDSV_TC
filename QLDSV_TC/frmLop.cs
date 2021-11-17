@@ -40,7 +40,7 @@ namespace QLDSV_TC
             comboKhoa.DisplayMember = "TENPM";
             comboKhoa.ValueMember = "TENSERVER";
 
-            comboKhoa.SelectedIndex = Program.mKhoa;
+            comboKhoa.Text = Program.mKhoa;
             comboKhoa.Enabled = Program.role == "PGV";
 
             maKhoa = comboKhoa.Text;
@@ -67,7 +67,7 @@ namespace QLDSV_TC
 
             Program.server = comboKhoa.SelectedValue.ToString();     
 
-            if (comboKhoa.SelectedIndex != Program.mKhoa)
+            if (comboKhoa.Text != Program.mKhoa)
             {
                 Program.mLogin = Program.remoteLogin;
                 Program.pass = Program.remotePass;
@@ -243,77 +243,26 @@ namespace QLDSV_TC
                     return;
                 }
 
-                try
+
+                string maLop = txtMaLop.Text.Trim();
+
+                if (Program.ExecSqlNonQuery("SP_THEM_LOP", CommandType.StoredProcedure, new[]
                 {
-                    string maLop = txtMaLop.Text.Trim();
-
-                    // thao tác ở site hiện tại trước
-                    Program.ExecSqlDataReader("SP_TIM_LOP", CommandType.StoredProcedure, new[]{
-                        new SqlParameter("@malop", SqlDbType.NChar){Value=maLop}
-                    });
-
-                    if (Program.reader.Read())
-                    {
-                        MessageBox.Show("Mã lớp đã tồn tại, vui lòng nhập mã khác!", "Thông báo", MessageBoxButtons.OK);
-                        Program.reader.Close();
-                        return;
-                    }
-
-                    // Kiểm tra ở các site khác
-
-                    Program.mLogin = Program.remoteLogin;
-                    Program.pass = Program.remotePass;
-
-                    for (int i=0; i<Program.bdsDSKhoa.Count; i++)
-                    {
-                        string svName = ((DataRowView)Program.bdsDSKhoa[i])["TENSERVER"].ToString();
-                        if (svName != curServer)
-                        {
-                            Program.server = svName;
-
-                            if(Program.Connect() == 0)
-                            {
-                                MessageBox.Show("Lỗi kết nối tới site khác!", "Thông báo", MessageBoxButtons.OK);
-                                connectLoginSite();
-                                return;
-                            }
-
-                            Program.ExecSqlDataReader("SP_TIM_LOP", CommandType.StoredProcedure, new[]{
-                                new SqlParameter("@malop", SqlDbType.NChar){Value=maLop}
-                            });
-
-                            if (Program.reader.Read())
-                            {
-                                MessageBox.Show("Mã lớp đã tồn tại, vui lòng nhập mã khác!", "Thông báo", MessageBoxButtons.OK);
-                                Program.reader.Close();
-                                connectLoginSite();
-                                return;
-                            }
-                        }
-                                 
-                    }
-
-                    // Nếu tất cả các site đều k có thì tiến hành thêm ở site hiện tại
-                    connectLoginSite();
-
-                    // DS_SV.AcceptChanges();
-                    bdsLOP.EndEdit();
-
-                    bdsLOP.ResetCurrentItem();
+                        new SqlParameter("@malop", SqlDbType.NChar){Value=maLop},
+                        new SqlParameter("@tenlop", SqlDbType.NVarChar){Value=txtTenLop.Text.Trim()},
+                        new SqlParameter("@khoahoc", SqlDbType.NChar){Value=txtKhoaHoc.Text.Trim()},
+                        new SqlParameter("@makhoa", SqlDbType.NChar){Value=txtMaKhoa.Text}
+                    }) == 1)
+                {
                     LOPTableAdapter.Connection.ConnectionString = Program.connString;
-                    LOPTableAdapter.Update(DS_LOP.LOP);
-
+                    LOPTableAdapter.Fill(DS_LOP.LOP);
+                    
+                    MessageBox.Show("Ghi thành công!", "Thông báo", MessageBoxButtons.OK);
+                    
+                    btnGhi.Enabled = btnThem.Enabled = btnXoa.Enabled = btnLoadDSSV.Enabled = btnReload.Enabled = gcLop.Enabled = true;
+                    btnUndo.Enabled = gvSV.Enabled = panelLop.Enabled = false;
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Lỗi ghi lớp: " + ex.Message, "Thông báo", MessageBoxButtons.OK);
-                    return;
-                }
-
-                MessageBox.Show("Ghi thành công!", "Thông báo", MessageBoxButtons.OK);
-
-                btnGhi.Enabled =  btnThem.Enabled = btnXoa.Enabled = btnLoadDSSV.Enabled = btnReload.Enabled = gcLop.Enabled = true;
-                btnUndo.Enabled = gvSV.Enabled = panelLop.Enabled = false;
+                
             }
             else
             {

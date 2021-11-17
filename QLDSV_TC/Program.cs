@@ -24,7 +24,7 @@ namespace QLDSV_TC
         public static BindingSource bindingSourcePM = new BindingSource();
         public static BindingSource bdsDSKhoa = new BindingSource();
 
-        public static int mKhoa = 0;
+        public static string mKhoa = "";
 
         public static String server = "";
         public static String mLogin = "";
