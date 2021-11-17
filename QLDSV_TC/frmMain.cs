@@ -57,7 +57,14 @@ namespace QLDSV_TC
 
         private void btnNhapMH_ItemClick(object sender, ItemClickEventArgs e)
         {
-
+            Form frm = this.checkExists(typeof(frmMH));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmMH f = new frmMH();
+                f.MdiParent = this;
+                f.Show();
+            }
         }
 
         private void btnTaoTK_ItemClick(object sender, ItemClickEventArgs e)

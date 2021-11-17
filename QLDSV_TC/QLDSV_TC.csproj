@@ -54,6 +54,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DS_MH.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_MH.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DS_SV.cs">
       <DependentUpon>DS_SV.xsd</DependentUpon>
     </Compile>
@@ -119,6 +124,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="DS_MH.xsc">
+      <DependentUpon>DS_MH.xsd</DependentUpon>
+    </None>
+    <None Include="DS_MH.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_MH.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DS_MH.xss">
+      <DependentUpon>DS_MH.xsd</DependentUpon>
+    </None>
     <None Include="DS_SV.xsc">
       <DependentUpon>DS_SV.xsd</DependentUpon>
     </None>
