@@ -85,6 +85,12 @@
     <Compile Include="frmDiem.Designer.cs">
       <DependentUpon>frmDiem.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmHocPhi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHocPhi.Designer.cs">
+      <DependentUpon>frmHocPhi.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +135,12 @@
     <Compile Include="Xfrm_BangDiemTongKetLop.Designer.cs">
       <DependentUpon>Xfrm_BangDiemTongKetLop.cs</DependentUpon>
     </Compile>
+    <Compile Include="Xfrm_HocPhiTheoLop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Xfrm_HocPhiTheoLop.Designer.cs">
+      <DependentUpon>Xfrm_HocPhiTheoLop.cs</DependentUpon>
+    </Compile>
     <Compile Include="Xfrm_PhieuDiemSV.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,6 +167,9 @@
     </Compile>
     <EmbeddedResource Include="frmDiem.resx">
       <DependentUpon>frmDiem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHocPhi.resx">
+      <DependentUpon>frmHocPhi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
@@ -186,6 +201,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Xfrm_BangDiemTongKetLop.resx">
       <DependentUpon>Xfrm_BangDiemTongKetLop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Xfrm_HocPhiTheoLop.resx">
+      <DependentUpon>Xfrm_HocPhiTheoLop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Xfrm_PhieuDiemSV.resx">
       <DependentUpon>Xfrm_PhieuDiemSV.cs</DependentUpon>
