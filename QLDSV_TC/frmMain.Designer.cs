@@ -165,6 +165,7 @@ namespace QLDSV_TC
             this.btnNhapDiem.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnNhapDiem.ImageOptions.LargeImage")));
             this.btnNhapDiem.LargeWidth = 70;
             this.btnNhapDiem.Name = "btnNhapDiem";
+            this.btnNhapDiem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnNhapDiem_ItemClick);
             // 
             // btnTaoTK
             // 
@@ -205,12 +206,13 @@ namespace QLDSV_TC
             // 
             // btnBCDiemMH
             // 
-            this.btnBCDiemMH.Caption = "Bảng điểm Môn học";
+            this.btnBCDiemMH.Caption = "Bảng điểm Môn học 1 LTC";
             this.btnBCDiemMH.Id = 14;
             this.btnBCDiemMH.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBCDiemMH.ImageOptions.Image")));
             this.btnBCDiemMH.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnBCDiemMH.ImageOptions.LargeImage")));
-            this.btnBCDiemMH.LargeWidth = 70;
+            this.btnBCDiemMH.LargeWidth = 81;
             this.btnBCDiemMH.Name = "btnBCDiemMH";
+            this.btnBCDiemMH.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBCDiemMH_ItemClick);
             // 
             // btnBCPhieuDiem
             // 
@@ -219,6 +221,7 @@ namespace QLDSV_TC
             this.btnBCPhieuDiem.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnBCPhieuDiem.ImageOptions.LargeImage")));
             this.btnBCPhieuDiem.LargeWidth = 70;
             this.btnBCPhieuDiem.Name = "btnBCPhieuDiem";
+            this.btnBCPhieuDiem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBCPhieuDiem_ItemClick);
             // 
             // btnBCDiemTongKet
             // 
@@ -228,6 +231,7 @@ namespace QLDSV_TC
             this.btnBCDiemTongKet.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnBCDiemTongKet.ImageOptions.LargeImage")));
             this.btnBCDiemTongKet.LargeWidth = 70;
             this.btnBCDiemTongKet.Name = "btnBCDiemTongKet";
+            this.btnBCDiemTongKet.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBCDiemTongKet_ItemClick);
             // 
             // btnBCDongHP
             // 

@@ -22,6 +22,7 @@ namespace QLDSV_TC
         public static String dbName = "QLDSV_TC";
 
         public static BindingSource bindingSourcePM = new BindingSource();
+        public static BindingSource bdsDSKhoa = new BindingSource();
 
         public static int mKhoa = 0;
 
@@ -180,7 +181,7 @@ namespace QLDSV_TC
 
             SqlCommand cmd = new SqlCommand(sql, conn);
             if (parameters != null) cmd.Parameters.AddRange(parameters);
-            cmd.CommandType = CommandType.Text;
+            cmd.CommandType = type;
             // cmd.CommandTimeout = 600;
             try
             {
@@ -189,8 +190,8 @@ namespace QLDSV_TC
             }
             catch (SqlException ex)
             {
-                MessageBox.Show(ex.Message);
-                return ex.State;
+                MessageBox.Show("Lỗi: "+ex.Message, "Thông báo", MessageBoxButtons.OK);
+                return 0;
             }
             finally
             {

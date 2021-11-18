@@ -45,11 +45,11 @@ namespace QLDSV_TC
 
         private void btnNhapLop_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Form frm = this.checkExists(typeof(frmSV));
+            Form frm = this.checkExists(typeof(frmLop));
             if (frm != null) frm.Activate();
             else
             {
-                frmSV f = new frmSV();
+                frmLop f = new frmLop();
                 f.MdiParent = this;
                 f.Show();
             }
@@ -65,6 +65,7 @@ namespace QLDSV_TC
                 f.MdiParent = this;
                 f.Show();
             }
+
         }
 
         private void btnTaoTK_ItemClick(object sender, ItemClickEventArgs e)
@@ -84,6 +85,54 @@ namespace QLDSV_TC
         private void btnSinhVien_ItemClick(object sender, ItemClickEventArgs e)
         {
             
+        }
+
+        private void btnNhapDiem_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form frm = this.checkExists(typeof(frmDiem));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmDiem f = new frmDiem();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btnBCDiemMH_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form frm = this.checkExists(typeof(Xfrm_BangDiemMonHoc1LTC));
+            if (frm != null) frm.Activate();
+            else
+            {
+                Xfrm_BangDiemMonHoc1LTC f = new Xfrm_BangDiemMonHoc1LTC();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btnBCPhieuDiem_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form frm = this.checkExists(typeof(Xfrm_PhieuDiemSV));
+            if (frm != null) frm.Activate();
+            else
+            {
+                Xfrm_PhieuDiemSV f = new Xfrm_PhieuDiemSV();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btnBCDiemTongKet_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form frm = this.checkExists(typeof(Xfrm_BangDiemTongKetLop));
+            if (frm != null) frm.Activate();
+            else
+            {
+                Xfrm_BangDiemTongKetLop f = new Xfrm_BangDiemTongKetLop();
+                f.MdiParent = this;
+                f.Show();
+            }
         }
     }
 }

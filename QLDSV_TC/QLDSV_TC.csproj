@@ -33,14 +33,29 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.Charts.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.CodeParser.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Data.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.DataAccess.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Office.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Pdf.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v19.2.Export, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Sparkline.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v19.2.UI, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpo.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraBars.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGauges.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraGrid.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraPrinting.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v19.2.Extensions, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -59,19 +74,33 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_MH.xsd</DependentUpon>
     </Compile>
-    <Compile Include="DS_SV.cs">
-      <DependentUpon>DS_SV.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="DS_SV.Designer.cs">
+    <Compile Include="DS_LOP.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DS_SV.xsd</DependentUpon>
+      <DependentUpon>DS_LOP.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DS_LTC.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_LTC.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="frmDiem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDiem.Designer.cs">
+      <DependentUpon>frmDiem.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLop.Designer.cs">
+      <DependentUpon>frmLop.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
@@ -85,12 +114,6 @@
     <Compile Include="frmMH.Designer.cs">
       <DependentUpon>frmMH.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSV.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmSV.Designer.cs">
-      <DependentUpon>frmSV.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmTaoTK.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,17 +122,56 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Xfrm_BangDiemMonHoc1LTC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Xfrm_BangDiemMonHoc1LTC.Designer.cs">
+      <DependentUpon>Xfrm_BangDiemMonHoc1LTC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Xfrm_BangDiemTongKetLop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Xfrm_BangDiemTongKetLop.Designer.cs">
+      <DependentUpon>Xfrm_BangDiemTongKetLop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Xfrm_PhieuDiemSV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Xfrm_PhieuDiemSV.Designer.cs">
+      <DependentUpon>Xfrm_PhieuDiemSV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Xrpt_BangDiemMonHoc1LTC.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Xrpt_BangDiemMonHoc1LTC.Designer.cs">
+      <DependentUpon>Xrpt_BangDiemMonHoc1LTC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Xrpt_BangDiemTongKetLop.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Xrpt_BangDiemTongKetLop.Designer.cs">
+      <DependentUpon>Xrpt_BangDiemTongKetLop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Xrpt_PhieuDiemSV.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Xrpt_PhieuDiemSV.Designer.cs">
+      <DependentUpon>Xrpt_PhieuDiemSV.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="frmDiem.resx">
+      <DependentUpon>frmDiem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLop.resx">
+      <DependentUpon>frmLop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMH.resx">
       <DependentUpon>frmMH.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmSV.resx">
-      <DependentUpon>frmSV.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTaoTK.resx">
       <DependentUpon>frmTaoTK.cs</DependentUpon>
@@ -135,16 +197,45 @@
     <None Include="DS_MH.xss">
       <DependentUpon>DS_MH.xsd</DependentUpon>
     </None>
-    <None Include="DS_SV.xsc">
-      <DependentUpon>DS_SV.xsd</DependentUpon>
+    <EmbeddedResource Include="Xfrm_BangDiemMonHoc1LTC.resx">
+      <DependentUpon>Xfrm_BangDiemMonHoc1LTC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Xfrm_BangDiemTongKetLop.resx">
+      <DependentUpon>Xfrm_BangDiemTongKetLop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Xfrm_PhieuDiemSV.resx">
+      <DependentUpon>Xfrm_PhieuDiemSV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Xrpt_BangDiemMonHoc1LTC.resx">
+      <DependentUpon>Xrpt_BangDiemMonHoc1LTC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Xrpt_BangDiemTongKetLop.resx">
+      <DependentUpon>Xrpt_BangDiemTongKetLop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Xrpt_PhieuDiemSV.resx">
+      <DependentUpon>Xrpt_PhieuDiemSV.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="DS_LOP.xsc">
+      <DependentUpon>DS_LOP.xsd</DependentUpon>
     </None>
-    <None Include="DS_SV.xsd">
+    <None Include="DS_LOP.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DS_SV.Designer.cs</LastGenOutput>
+      <LastGenOutput>DS_LOP.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="DS_SV.xss">
-      <DependentUpon>DS_SV.xsd</DependentUpon>
+    <None Include="DS_LOP.xss">
+      <DependentUpon>DS_LOP.xsd</DependentUpon>
+    </None>
+    <None Include="DS_LTC.xsc">
+      <DependentUpon>DS_LTC.xsd</DependentUpon>
+    </None>
+    <None Include="DS_LTC.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_LTC.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DS_LTC.xss">
+      <DependentUpon>DS_LTC.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

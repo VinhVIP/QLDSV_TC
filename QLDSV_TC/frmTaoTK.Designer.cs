@@ -44,10 +44,10 @@ namespace QLDSV_TC
             // 
             // btnTaoTK
             // 
-            this.btnTaoTK.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTaoTK.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTaoTK.Location = new System.Drawing.Point(362, 364);
             this.btnTaoTK.Name = "btnTaoTK";
-            this.btnTaoTK.Size = new System.Drawing.Size(123, 23);
+            this.btnTaoTK.Size = new System.Drawing.Size(130, 29);
             this.btnTaoTK.TabIndex = 12;
             this.btnTaoTK.Text = "Tạo tài khoản";
             this.btnTaoTK.UseVisualStyleBackColor = true;
@@ -56,80 +56,82 @@ namespace QLDSV_TC
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(215, 290);
+            this.label4.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(223, 290);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(69, 16);
+            this.label4.Size = new System.Drawing.Size(79, 18);
             this.label4.TabIndex = 16;
             this.label4.Text = "Mật khẩu :";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(215, 249);
+            this.label3.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(220, 246);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(73, 16);
+            this.label3.Size = new System.Drawing.Size(82, 18);
             this.label3.TabIndex = 14;
             this.label3.Text = "Tài khoản :";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(205, 206);
+            this.label2.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(207, 206);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(83, 16);
+            this.label2.Size = new System.Drawing.Size(95, 18);
             this.label2.TabIndex = 13;
             this.label2.Text = "Chọn Nhóm :";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(179, 161);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(109, 16);
+            this.label1.Size = new System.Drawing.Size(123, 18);
             this.label1.TabIndex = 15;
             this.label1.Text = "Chọn Giảng viên :";
             // 
             // txtTK
             // 
-            this.txtTK.Location = new System.Drawing.Point(310, 243);
+            this.txtTK.Location = new System.Drawing.Point(318, 243);
             this.txtTK.Name = "txtTK";
-            this.txtTK.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTK.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTK.Properties.Appearance.Options.UseFont = true;
-            this.txtTK.Size = new System.Drawing.Size(247, 22);
+            this.txtTK.Size = new System.Drawing.Size(247, 24);
             this.txtTK.TabIndex = 10;
             // 
             // txtMK
             // 
-            this.txtMK.Location = new System.Drawing.Point(310, 287);
+            this.txtMK.Location = new System.Drawing.Point(318, 287);
             this.txtMK.Name = "txtMK";
-            this.txtMK.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMK.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMK.Properties.Appearance.Options.UseFont = true;
-            this.txtMK.Size = new System.Drawing.Size(247, 22);
+            this.txtMK.Size = new System.Drawing.Size(247, 24);
             this.txtMK.TabIndex = 11;
             // 
             // comboBoxNhom
             // 
-            this.comboBoxNhom.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxNhom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxNhom.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxNhom.FormattingEnabled = true;
-            this.comboBoxNhom.Location = new System.Drawing.Point(310, 198);
+            this.comboBoxNhom.Location = new System.Drawing.Point(318, 198);
             this.comboBoxNhom.Name = "comboBoxNhom";
-            this.comboBoxNhom.Size = new System.Drawing.Size(247, 24);
+            this.comboBoxNhom.Size = new System.Drawing.Size(247, 26);
             this.comboBoxNhom.TabIndex = 9;
             // 
             // comboBoxGV
             // 
-            this.comboBoxGV.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxGV.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxGV.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxGV.FormattingEnabled = true;
-            this.comboBoxGV.Location = new System.Drawing.Point(310, 153);
+            this.comboBoxGV.Location = new System.Drawing.Point(318, 153);
             this.comboBoxGV.Name = "comboBoxGV";
-            this.comboBoxGV.Size = new System.Drawing.Size(247, 24);
+            this.comboBoxGV.Size = new System.Drawing.Size(247, 26);
             this.comboBoxGV.TabIndex = 8;
             // 
-            // frmTaoTK2
+            // frmTaoTK
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -143,7 +145,7 @@ namespace QLDSV_TC
             this.Controls.Add(this.txtMK);
             this.Controls.Add(this.comboBoxNhom);
             this.Controls.Add(this.comboBoxGV);
-            this.Name = "frmTaoTK2";
+            this.Name = "frmTaoTK";
             this.Text = "frmTaoTK2";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmTaoTK2_Load);
