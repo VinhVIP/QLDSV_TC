@@ -124,7 +124,7 @@ namespace QLDSV_TC
             }
             else
             {
-                Program.mKhoa = comboKhoa.SelectedIndex;
+                Program.mKhoa = comboKhoa.Text;
                 getLoginInfo();
             }
 

@@ -29,7 +29,7 @@ namespace QLDSV_TC
             comboKhoa.DisplayMember = "TENPM";
             comboKhoa.ValueMember = "TENSERVER";
 
-            comboKhoa.SelectedIndex = Program.mKhoa;
+            comboKhoa.SelectedText = Program.mKhoa;
             comboKhoa.Enabled = Program.role == "PGV";
 
         }
@@ -56,7 +56,7 @@ namespace QLDSV_TC
 
             Program.server = comboKhoa.SelectedValue.ToString();
 
-            if (comboKhoa.SelectedIndex != Program.mKhoa)
+            if (comboKhoa.Text != Program.mKhoa)
             {
                 Program.mLogin = Program.remoteLogin;
                 Program.pass = Program.remotePass;
