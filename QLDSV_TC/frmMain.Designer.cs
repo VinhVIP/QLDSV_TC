@@ -136,6 +136,7 @@ namespace QLDSV_TC
             this.btnDongHP.ItemAppearance.Normal.Options.UseBackColor = true;
             this.btnDongHP.LargeWidth = 70;
             this.btnDongHP.Name = "btnDongHP";
+            this.btnDongHP.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDongHP_ItemClick);
             // 
             // btnNhapMH
             // 
@@ -241,6 +242,7 @@ namespace QLDSV_TC
             this.btnBCDongHP.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnBCDongHP.ImageOptions.LargeImage")));
             this.btnBCDongHP.LargeWidth = 70;
             this.btnBCDongHP.Name = "btnBCDongHP";
+            this.btnBCDongHP.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBCDongHP_ItemClick);
             // 
             // btnSinhVien
             // 

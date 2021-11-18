@@ -296,7 +296,7 @@ namespace QLDSV_TC
             // labelHoTen
             // 
             this.labelHoTen.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.labelHoTen.LocationFloat = new DevExpress.Utils.PointFloat(469.7917F, 66.66666F);
+            this.labelHoTen.LocationFloat = new DevExpress.Utils.PointFloat(479.7918F, 66.66663F);
             this.labelHoTen.Multiline = true;
             this.labelHoTen.Name = "labelHoTen";
             this.labelHoTen.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -311,7 +311,7 @@ namespace QLDSV_TC
             this.xrLabel1.Multiline = true;
             this.xrLabel1.Name = "xrLabel1";
             this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel1.SizeF = new System.Drawing.SizeF(97.91666F, 23F);
+            this.xrLabel1.SizeF = new System.Drawing.SizeF(107.9168F, 23.00001F);
             this.xrLabel1.StylePriority.UseFont = false;
             this.xrLabel1.Text = "Tên sinh viên:";
             // 

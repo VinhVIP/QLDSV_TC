@@ -134,5 +134,29 @@ namespace QLDSV_TC
                 f.Show();
             }
         }
+
+        private void btnDongHP_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form frm = this.checkExists(typeof(frmHocPhi));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmHocPhi f = new frmHocPhi();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btnBCDongHP_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form frm = this.checkExists(typeof(Xfrm_HocPhiTheoLop));
+            if (frm != null) frm.Activate();
+            else
+            {
+                Xfrm_HocPhiTheoLop f = new Xfrm_HocPhiTheoLop();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
     }
 }

@@ -26,7 +26,7 @@ namespace QLDSV_TC
             comboKhoa.DisplayMember = "TENPM";
             comboKhoa.ValueMember = "TENSERVER";
 
-            comboKhoa.SelectedText = Program.mKhoa;
+            comboKhoa.Text = Program.mKhoa;
             comboKhoa.Enabled = Program.role == "PGV";
         }
 
