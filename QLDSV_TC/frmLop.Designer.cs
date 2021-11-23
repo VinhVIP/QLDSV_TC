@@ -464,6 +464,7 @@ namespace QLDSV_TC
             this.gvSV.Cursor = System.Windows.Forms.Cursors.Default;
             this.gvSV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gvSV.Location = new System.Drawing.Point(2, 2);
+            this.gvSV.MultiSelect = false;
             this.gvSV.Name = "gvSV";
             this.gvSV.Size = new System.Drawing.Size(744, 415);
             this.gvSV.TabIndex = 0;

@@ -98,11 +98,26 @@ namespace QLDSV_TC
             }
         }
 
+        DataTable dtCopy;
+
         private void btnLoadDSSV_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             maLop = ((DataRowView)bdsLOP[bdsLOP.Position])["MALOP"].ToString();
             String sql = "EXEC SP_LAY_DSSV_LOP " + maLop;
             dtSV = Program.ExecSqlDataTable(sql);
+
+            // Chọn khóa chính cho DataTable
+            //dtSV.PrimaryKey = new DataColumn[] { dtSV.Columns["MASV"] };
+
+            // Copy
+            dtCopy = dtSV.Clone();
+            for(int i=0; i<dtSV.Rows.Count; i++)
+            {
+                dtCopy.Rows.Add(dtSV.Rows[i]["MASV"], dtSV.Rows[i]["HO"],
+                            dtSV.Rows[i]["TEN"], dtSV.Rows[i]["PHAI"],
+                            dtSV.Rows[i]["DIACHI"], dtSV.Rows[i]["NGAYSINH"],
+                            dtSV.Rows[i]["DANGHIHOC"], dtSV.Rows[i]["PASSWORD"]);
+            }
 
             gvSV.DataSource = dtSV;
 
@@ -121,20 +136,39 @@ namespace QLDSV_TC
         {
             if (dtSV == null || dtSV.Rows.Count == 0) return;
 
-            int removePos = gvSV.CurrentCell.RowIndex;
+            if (MessageBox.Show("Bạn thực sự muốn xóa sinh viên này?", "Xác nhận", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                int removePos = gvSV.CurrentCell.RowIndex;
+                if (removePos == -1) return;
 
-            String maSV = gvSV.Rows[removePos].Cells["MASV"].Value.ToString();
-            Console.WriteLine(maSV);
+                String maSV = gvSV.Rows[removePos].Cells["MASV"].Value.ToString();
+                Console.WriteLine("Xoa :" + maSV);
 
-            int result = Program.ExecSqlNonQuery("SP_XOA_SV", CommandType.StoredProcedure, new[] {
+                int result = Program.ExecSqlNonQuery("SP_XOA_SV", CommandType.StoredProcedure, new[] {
                         new SqlParameter("@masv", SqlDbType.NChar){Value=maSV}
                     });
 
-            if (result == 1)
-            {
-                MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK);
-                dtSV.Rows.RemoveAt(removePos);
+                if (result == 1)
+                {
+                    MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK);
+                    dtSV.Rows.RemoveAt(removePos);
+
+                    //dtCopy.PrimaryKey = new DataColumn[] { dtCopy.Columns["MASV"] };
+
+                    //DataRow rows = dtCopy.Rows.Find(maSV);
+                    //Console.WriteLine(rows["HO"]);
+                    //foreach(DataRow r in rows)
+                    //{
+                    //    Console.WriteLine(r["TEN"]);
+                    //    dtCopy.Rows.Remove(r);
+                    //}
+                }
             }
+
+            //for(int i=0; i<dtCopy.Rows.Count; i++)
+            //{
+            //    Console.WriteLine(dtCopy.Rows[i].ItemArray[0]);
+            //}
         }
 
         private void btnThemSV_Click(object sender, EventArgs e)
@@ -307,12 +341,34 @@ namespace QLDSV_TC
 
                     for (int i = 0; i < dtSV.Rows.Count; i++)
                     {
-                        dt.Rows.Add(dtSV.Rows[i]["MASV"], dtSV.Rows[i]["HO"],
-                            dtSV.Rows[i]["TEN"], dtSV.Rows[i]["PHAI"],
-                            dtSV.Rows[i]["DIACHI"], convertDate(dtSV.Rows[i]["NGAYSINH"].ToString()), maLop,
-                            dtSV.Rows[i]["DANGHIHOC"], dtSV.Rows[i]["PASSWORD"]
-                        );
+                        int index = indexRow(dtCopy, dtSV.Rows[i]);
+                        if(index == -1)
+                        {
+                            // Thêm mới
+                            Console.WriteLine(dtSV.Rows[i]["MASV"]);
+
+                            dt.Rows.Add(dtSV.Rows[i]["MASV"], dtSV.Rows[i]["HO"],
+                                   dtSV.Rows[i]["TEN"], dtSV.Rows[i]["PHAI"],
+                                   dtSV.Rows[i]["DIACHI"], convertDate(dtSV.Rows[i]["NGAYSINH"].ToString()), maLop,
+                                   dtSV.Rows[i]["DANGHIHOC"], dtSV.Rows[i]["PASSWORD"]
+                            );
+                        }
+                        else
+                        {
+                            // Trùng, kiểm tra row đó có được chỉnh sửa hay không
+                            if(!isSameRow(dtSV.Rows[i], dtCopy.Rows[index])){
+                                Console.WriteLine(dtSV.Rows[i]["MASV"] + " Edit");
+
+                                dt.Rows.Add(dtSV.Rows[i]["MASV"], dtSV.Rows[i]["HO"],
+                                   dtSV.Rows[i]["TEN"], dtSV.Rows[i]["PHAI"],
+                                   dtSV.Rows[i]["DIACHI"], convertDate(dtSV.Rows[i]["NGAYSINH"].ToString()), maLop,
+                                   dtSV.Rows[i]["DANGHIHOC"], dtSV.Rows[i]["PASSWORD"]
+                                );
+                            }
+                        }
+                        
                     }
+
 
                     SqlParameter param = new SqlParameter();
                     param.SqlDbType = SqlDbType.Structured;
@@ -346,6 +402,29 @@ namespace QLDSV_TC
 
             }
             
+        }
+
+        private int indexRow(DataTable dt, DataRow row)
+        {
+            int l = 0, r = dt.Rows.Count-1;
+            while(l <= r)
+            {
+                int m = (l + r) / 2;
+                if (dt.Rows[m]["MASV"].ToString() == row["MASV"].ToString()) return m;
+                else if (dt.Rows[m]["MASV"].ToString().CompareTo(row["MASV"].ToString()) < 0) l = m + 1;
+                else r = m - 1;
+            }
+            return -1;
+        }
+
+        private bool isSameRow(DataRow a, DataRow b)
+        {
+            return a.ItemArray.SequenceEqual(b.ItemArray);
+            //for(int i=0; i<a.ItemArray.Length; i++)
+            //{
+            //    if (a[i] != b[i]) return false;
+            //}
+            //return true;
         }
 
         private void connectLoginSite()
