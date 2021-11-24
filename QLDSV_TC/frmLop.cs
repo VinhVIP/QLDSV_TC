@@ -364,9 +364,13 @@ namespace QLDSV_TC
                             // Thêm mới
                             Console.WriteLine(dtSV.Rows[i]["MASV"]);
 
-                            dt.Rows.Add(dtSV.Rows[i]["MASV"], dtSV.Rows[i]["HO"],
-                                   dtSV.Rows[i]["TEN"], dtSV.Rows[i]["PHAI"],
-                                   dtSV.Rows[i]["DIACHI"], convertDate(dtSV.Rows[i]["NGAYSINH"].ToString()), maLop,
+                            dt.Rows.Add(dtSV.Rows[i]["MASV"], 
+                                   formatName(dtSV.Rows[i]["HO"].ToString()),
+                                   formatWord(dtSV.Rows[i]["TEN"].ToString().Trim()), 
+                                   dtSV.Rows[i]["PHAI"],
+                                   dtSV.Rows[i]["DIACHI"], 
+                                   convertDate(dtSV.Rows[i]["NGAYSINH"].ToString()), 
+                                   maLop,
                                    dtSV.Rows[i]["DANGHIHOC"],
                                    dtSV.Rows[i]["PASSWORD"],
                                    true
@@ -378,13 +382,19 @@ namespace QLDSV_TC
                             if(!isSameRow(dtSV.Rows[i], dtCopy.Rows[index])){
                                 Console.WriteLine(dtSV.Rows[i]["MASV"] + " Edit");
 
-                                dt.Rows.Add(dtSV.Rows[i]["MASV"], dtSV.Rows[i]["HO"],
-                                   dtSV.Rows[i]["TEN"], dtSV.Rows[i]["PHAI"],
-                                   dtSV.Rows[i]["DIACHI"], convertDate(dtSV.Rows[i]["NGAYSINH"].ToString()), maLop,
-                                   dtSV.Rows[i]["DANGHIHOC"], 
+                                dt.Rows.Add(dtSV.Rows[i]["MASV"],
+                                   formatName(dtSV.Rows[i]["HO"].ToString()),
+                                   formatWord(dtSV.Rows[i]["TEN"].ToString().Trim()),
+                                   dtSV.Rows[i]["PHAI"],
+                                   dtSV.Rows[i]["DIACHI"],
+                                   convertDate(dtSV.Rows[i]["NGAYSINH"].ToString()),
+                                   maLop,
+                                   dtSV.Rows[i]["DANGHIHOC"],
                                    dtSV.Rows[i]["PASSWORD"],
                                    false
-                                );
+                            );
+
+                               
                             }
                         }
                         
@@ -408,13 +418,12 @@ namespace QLDSV_TC
                     }
                     catch (SqlException ex)
                     {
-                        
-                        MessageBox.Show("Lỗi ghi sinh viên: " + ex.Message, "Thông báo: ", MessageBoxButtons.OK);
-
                         if(ex.State == 18)
                         {
                             string msg = ex.Message.Trim();
                             string[] list = msg.Split(' ');
+
+                            MessageBox.Show(String.Format("Lỗi ghi sinh viên: {0} thành công \n {1} lỗi : {2}", dt.Rows.Count-list.Length, list.Length, ex.Message), "Thông báo: ", MessageBoxButtons.OK);
 
                             loadDSSV(maLop);
 
@@ -436,6 +445,10 @@ namespace QLDSV_TC
 
                             gvSV.CurrentCell = gvSV.Rows[focusPos].Cells["MASV"];
                             gvSV.BeginEdit(true);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Lỗi ghi sinh viên: " + ex.Message, "Thông báo: ", MessageBoxButtons.OK);
                         }
 
                         return;
@@ -477,14 +490,34 @@ namespace QLDSV_TC
             //return true;
         }
 
-        private void connectLoginSite()
+        private String formatName(string name)
         {
-            Program.server = curServer;
-            Program.mLogin = curLogin;
-            Program.pass = curPass;
-
-            Program.Connect();
+            string[] list = name.Split(' ');
+            string res = "";
+            foreach(string s in list)
+            {
+                res += formatWord(s) + " ";
+            }
+            return res.Trim();
         }
+
+        private String formatWord(string name)
+        {
+            if (name == null || name.Length == 0) return "";
+            string res = name.Substring(0, 1).ToUpper();
+            if(name.Length > 1) res += name.Substring(1).ToLower();
+
+            return res;
+        }
+
+        //private void connectLoginSite()
+        //{
+        //    Program.server = curServer;
+        //    Program.mLogin = curLogin;
+        //    Program.pass = curPass;
+
+        //    Program.Connect();
+        //}
 
         /**
          * date: dd/MM/yyyy
