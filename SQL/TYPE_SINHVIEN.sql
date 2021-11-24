@@ -1,8 +1,7 @@
-﻿/* TYPE phải tự query ở các site phân mảnh, k thể phân tán */
 USE [QLDSV_TC]
 GO
 
-/****** Object:  UserDefinedTableType [dbo].[TYPE_SINHVIEN]    Script Date: 13/11/2021 11:11:03 PM ******/
+/****** Object:  UserDefinedTableType [dbo].[TYPE_SINHVIEN]    Script Date: 24/11/2021 9:41:07 AM ******/
 CREATE TYPE [dbo].[TYPE_SINHVIEN] AS TABLE(
 	[MASV] [nchar](10) NOT NULL,
 	[HO] [nvarchar](50) NOT NULL,
@@ -12,7 +11,8 @@ CREATE TYPE [dbo].[TYPE_SINHVIEN] AS TABLE(
 	[NGAYSINH] [date] NULL,
 	[MALOP] [nchar](10) NOT NULL,
 	[DANGHIHOC] [bit] NOT NULL,
-	[PASSWORD] [nvarchar](40) NULL
+	[PASSWORD] [nvarchar](40) NULL,
+	[NEW] [bit] NOT NULL
 )
 GO
 
