@@ -117,11 +117,25 @@ namespace QLDSV_TC
 
         private void btnBCDiemTongKet_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Form frm = this.checkExists(typeof(Xfrm_BangDiemTongKetLop));
+            Form frm = this.checkExists(typeof(frmTaoLTC));
             if (frm != null) frm.Activate();
             else
             {
                 Xfrm_BangDiemTongKetLop f = new Xfrm_BangDiemTongKetLop();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btnNhapLTC_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (Program.role.Equals("SV")) return;
+
+            Form frm = this.checkExists(typeof(frmLTC));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmLTC f = new frmLTC();
                 f.MdiParent = this;
                 f.Show();
             }

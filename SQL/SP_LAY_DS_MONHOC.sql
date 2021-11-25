@@ -1,0 +1,14 @@
+USE [QLDSV_TC]
+GO
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+-- L?Y MÃ MH VÀ TÊN MÔN H?C
+create proc [dbo].[SP_LAY_DS_MONHOC]
+as begin
+	select MAMH, TENMH from MONHOC;
+end
+GO

@@ -134,7 +134,7 @@ namespace QLDSV_TC
             this.Controls.Add(this.txtTK);
             this.Controls.Add(this.label1);
             this.Name = "frmLogin";
-            this.Text = "frmLogin";
+            this.Text = "Form Đăng nhập";
             this.Load += new System.EventHandler(this.frmLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtTK.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMK.Properties)).EndInit();

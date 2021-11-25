@@ -119,6 +119,7 @@ namespace QLDSV_TC
             this.btnNhapLTC.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnNhapLTC.ImageOptions.LargeImage")));
             this.btnNhapLTC.LargeWidth = 70;
             this.btnNhapLTC.Name = "btnNhapLTC";
+            this.btnNhapLTC.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnNhapLTC_ItemClick);
             // 
             // txtLoginInfo
             // 
@@ -328,7 +329,7 @@ namespace QLDSV_TC
             // ribbonStatusBar
             // 
             this.ribbonStatusBar.ItemLinks.Add(this.txtLoginInfo);
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 836);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 763);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
             this.ribbonStatusBar.Size = new System.Drawing.Size(1311, 24);
@@ -340,7 +341,7 @@ namespace QLDSV_TC
             // 
             // statusStrip1
             // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 814);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 741);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(1311, 22);
             this.statusStrip1.TabIndex = 6;
@@ -350,7 +351,7 @@ namespace QLDSV_TC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1311, 860);
+            this.ClientSize = new System.Drawing.Size(1311, 787);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbon);

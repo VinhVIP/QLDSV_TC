@@ -375,19 +375,19 @@ namespace QLDSV_TC
             this.btnThemSV,
             this.btnXoaSV});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(159, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(155, 48);
             // 
             // btnThemSV
             // 
             this.btnThemSV.Name = "btnThemSV";
-            this.btnThemSV.Size = new System.Drawing.Size(158, 22);
+            this.btnThemSV.Size = new System.Drawing.Size(154, 22);
             this.btnThemSV.Text = "Thêm sinh viên";
             this.btnThemSV.Click += new System.EventHandler(this.btnThemSV_Click);
             // 
             // btnXoaSV
             // 
             this.btnXoaSV.Name = "btnXoaSV";
-            this.btnXoaSV.Size = new System.Drawing.Size(158, 22);
+            this.btnXoaSV.Size = new System.Drawing.Size(154, 22);
             this.btnXoaSV.Text = "Xóa sinh viên";
             this.btnXoaSV.Click += new System.EventHandler(this.btnXoaSV_Click);
             // 
