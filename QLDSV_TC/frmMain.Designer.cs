@@ -157,6 +157,7 @@ namespace QLDSV_TC
             this.btnDangKyLTC.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnDangKyLTC.ImageOptions.LargeImage")));
             this.btnDangKyLTC.LargeWidth = 70;
             this.btnDangKyLTC.Name = "btnDangKyLTC";
+            this.btnDangKyLTC.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDangKyLTC_ItemClick);
             // 
             // btnNhapDiem
             // 

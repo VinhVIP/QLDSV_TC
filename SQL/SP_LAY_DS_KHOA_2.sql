@@ -13,7 +13,7 @@ CREATE proc [dbo].[SP_LAY_DS_KHOA_2]
 as begin
 	IF(@ROLE = 'PGV')
 		select MAKHOA, TENKHOA from LINK0.QLDSV_TC.DBO.KHOA;
-	IF(@ROLE = 'KHOA')
+	ELSE
 		SELECT MAKHOA, TENKHOA from KHOA;
 end
 GO

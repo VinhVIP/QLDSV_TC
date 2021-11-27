@@ -140,5 +140,23 @@ namespace QLDSV_TC
                 f.Show();
             }
         }
+
+        private void btnDangKyLTC_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (Program.role.Equals("SV"))
+            {
+                Form frm = this.checkExists(typeof(frmDKLTC));
+
+                if (frm != null) frm.Activate();
+                else
+                {
+                    frmDKLTC f = new frmDKLTC();
+                    f.MdiParent = this;
+                    f.Show();
+                }
+            }
+            else
+                return;
+        }
     }
 }

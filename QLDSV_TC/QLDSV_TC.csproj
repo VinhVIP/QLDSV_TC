@@ -86,6 +86,12 @@
     <Compile Include="frmDiem.Designer.cs">
       <DependentUpon>frmDiem.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDKLTC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDKLTC.Designer.cs">
+      <DependentUpon>frmDKLTC.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,6 +174,9 @@
     </Compile>
     <EmbeddedResource Include="frmDiem.resx">
       <DependentUpon>frmDiem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDKLTC.resx">
+      <DependentUpon>frmDKLTC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
