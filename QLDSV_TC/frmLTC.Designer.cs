@@ -346,7 +346,7 @@ namespace QLDSV_TC
             this.tbLTC.Location = new System.Drawing.Point(0, 80);
             this.tbLTC.Name = "tbLTC";
             this.tbLTC.ReadOnly = true;
-            this.tbLTC.Size = new System.Drawing.Size(1174, 232);
+            this.tbLTC.Size = new System.Drawing.Size(1174, 217);
             this.tbLTC.TabIndex = 11;
             // 
             // panelLTC

@@ -196,6 +196,7 @@ namespace QLDSV_TC
             this.btnBCDSLop.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnBCDSLop.ImageOptions.LargeImage")));
             this.btnBCDSLop.LargeWidth = 70;
             this.btnBCDSLop.Name = "btnBCDSLop";
+            this.btnBCDSLop.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBCDSLop_ItemClick);
             // 
             // btnBCDKLTC
             // 
@@ -205,6 +206,7 @@ namespace QLDSV_TC
             this.btnBCDKLTC.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnBCDKLTC.ImageOptions.LargeImage")));
             this.btnBCDKLTC.LargeWidth = 80;
             this.btnBCDKLTC.Name = "btnBCDKLTC";
+            this.btnBCDKLTC.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBCDKLTC_ItemClick);
             // 
             // btnBCDiemMH
             // 

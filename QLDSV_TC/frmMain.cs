@@ -158,5 +158,33 @@ namespace QLDSV_TC
             else
                 return;
         }
+
+        private void btnBCDSLop_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (Program.role.Equals("SV")) return;
+
+            Form frm = this.checkExists(typeof(Xfrm_DS_LTC));
+            if (frm != null) frm.Activate();
+            else
+            {
+                Xfrm_DS_LTC f = new Xfrm_DS_LTC();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btnBCDKLTC_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (Program.role.Equals("SV")) return;
+
+            Form frm = this.checkExists(typeof(Xfrm_DSSV_1LTC));
+            if (frm != null) frm.Activate();
+            else
+            {
+                Xfrm_DSSV_1LTC f = new Xfrm_DSSV_1LTC();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
     }
 }

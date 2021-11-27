@@ -148,6 +148,18 @@
     <Compile Include="Xfrm_BangDiemTongKetLop.Designer.cs">
       <DependentUpon>Xfrm_BangDiemTongKetLop.cs</DependentUpon>
     </Compile>
+    <Compile Include="Xfrm_DSSV_1LTC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Xfrm_DSSV_1LTC.Designer.cs">
+      <DependentUpon>Xfrm_DSSV_1LTC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Xfrm_DS_LTC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Xfrm_DS_LTC.Designer.cs">
+      <DependentUpon>Xfrm_DS_LTC.cs</DependentUpon>
+    </Compile>
     <Compile Include="Xfrm_PhieuDiemSV.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,6 +177,18 @@
     </Compile>
     <Compile Include="Xrpt_BangDiemTongKetLop.Designer.cs">
       <DependentUpon>Xrpt_BangDiemTongKetLop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Xrpt_DSSV_1LTC_new.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Xrpt_DSSV_1LTC_new.Designer.cs">
+      <DependentUpon>Xrpt_DSSV_1LTC_new.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Xrpt_DS_LTC.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Xrpt_DS_LTC.Designer.cs">
+      <DependentUpon>Xrpt_DS_LTC.cs</DependentUpon>
     </Compile>
     <Compile Include="Xrpt_PhieuDiemSV.cs">
       <SubType>Component</SubType>
@@ -215,6 +239,12 @@
     <EmbeddedResource Include="Xfrm_BangDiemTongKetLop.resx">
       <DependentUpon>Xfrm_BangDiemTongKetLop.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Xfrm_DSSV_1LTC.resx">
+      <DependentUpon>Xfrm_DSSV_1LTC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Xfrm_DS_LTC.resx">
+      <DependentUpon>Xfrm_DS_LTC.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Xfrm_PhieuDiemSV.resx">
       <DependentUpon>Xfrm_PhieuDiemSV.cs</DependentUpon>
     </EmbeddedResource>
@@ -223,6 +253,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Xrpt_BangDiemTongKetLop.resx">
       <DependentUpon>Xrpt_BangDiemTongKetLop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Xrpt_DSSV_1LTC_new.resx">
+      <DependentUpon>Xrpt_DSSV_1LTC_new.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Xrpt_DS_LTC.resx">
+      <DependentUpon>Xrpt_DS_LTC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Xrpt_PhieuDiemSV.resx">
       <DependentUpon>Xrpt_PhieuDiemSV.cs</DependentUpon>
