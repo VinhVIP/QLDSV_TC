@@ -312,6 +312,7 @@ namespace QLDSV_TC
             this.gcMONHOC.TabIndex = 10;
             this.gcMONHOC.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            this.gcMONHOC.Click += new System.EventHandler(this.gcMONHOC_Click);
             // 
             // gridView1
             // 

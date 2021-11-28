@@ -168,8 +168,13 @@ namespace QLDSV_TC
 
         private void btn_Undo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            bdsMH.CancelEdit();
-            if (btn_ThemMH.Enabled == false) bdsMH.Position = vitri;
+            
+            if (btn_ThemMH.Enabled == false)
+            {
+                bdsMH.CancelEdit();
+                bdsMH.RemoveCurrent();
+            }
+            bdsMH.Position = vitri;
             gcMONHOC.Enabled = true;
             panelControl1.Enabled = false;
             btn_ThemMH.Enabled = btn_DelMH.Enabled = btn_Reload.Enabled = btn_Exit.Enabled = true;
@@ -223,6 +228,11 @@ namespace QLDSV_TC
 
             Program.reader.Close();
             return false;
+        }
+
+        private void gcMONHOC_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
