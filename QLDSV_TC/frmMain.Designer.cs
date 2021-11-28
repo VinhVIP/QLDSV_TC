@@ -119,6 +119,7 @@ namespace QLDSV_TC
             this.btnNhapLTC.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnNhapLTC.ImageOptions.LargeImage")));
             this.btnNhapLTC.LargeWidth = 70;
             this.btnNhapLTC.Name = "btnNhapLTC";
+            this.btnNhapLTC.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnNhapLTC_ItemClick);
             // 
             // txtLoginInfo
             // 
@@ -157,6 +158,7 @@ namespace QLDSV_TC
             this.btnDangKyLTC.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnDangKyLTC.ImageOptions.LargeImage")));
             this.btnDangKyLTC.LargeWidth = 70;
             this.btnDangKyLTC.Name = "btnDangKyLTC";
+            this.btnDangKyLTC.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDangKyLTC_ItemClick);
             // 
             // btnNhapDiem
             // 
@@ -195,6 +197,7 @@ namespace QLDSV_TC
             this.btnBCDSLop.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnBCDSLop.ImageOptions.LargeImage")));
             this.btnBCDSLop.LargeWidth = 70;
             this.btnBCDSLop.Name = "btnBCDSLop";
+            this.btnBCDSLop.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBCDSLop_ItemClick);
             // 
             // btnBCDKLTC
             // 
@@ -204,6 +207,7 @@ namespace QLDSV_TC
             this.btnBCDKLTC.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnBCDKLTC.ImageOptions.LargeImage")));
             this.btnBCDKLTC.LargeWidth = 80;
             this.btnBCDKLTC.Name = "btnBCDKLTC";
+            this.btnBCDKLTC.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBCDKLTC_ItemClick);
             // 
             // btnBCDiemMH
             // 

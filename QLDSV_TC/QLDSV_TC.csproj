@@ -85,6 +85,12 @@
     <Compile Include="frmDiem.Designer.cs">
       <DependentUpon>frmDiem.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDKLTC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDKLTC.designer.cs">
+      <DependentUpon>frmDKLTC.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmHocPhi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +108,12 @@
     </Compile>
     <Compile Include="frmLop.Designer.cs">
       <DependentUpon>frmLop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLTC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLTC.designer.cs">
+      <DependentUpon>frmLTC.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
@@ -135,6 +147,18 @@
     <Compile Include="Xfrm_BangDiemTongKetLop.Designer.cs">
       <DependentUpon>Xfrm_BangDiemTongKetLop.cs</DependentUpon>
     </Compile>
+    <Compile Include="Xfrm_DSSV_1LTC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Xfrm_DSSV_1LTC.designer.cs">
+      <DependentUpon>Xfrm_DSSV_1LTC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Xfrm_DS_LTC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Xfrm_DS_LTC.designer.cs">
+      <DependentUpon>Xfrm_DS_LTC.cs</DependentUpon>
+    </Compile>
     <Compile Include="Xfrm_HocPhiTheoLop.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +183,18 @@
     <Compile Include="Xrpt_BangDiemTongKetLop.Designer.cs">
       <DependentUpon>Xrpt_BangDiemTongKetLop.cs</DependentUpon>
     </Compile>
+    <Compile Include="Xrpt_DSSV_1LTC_new.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Xrpt_DSSV_1LTC_new.designer.cs">
+      <DependentUpon>Xrpt_DSSV_1LTC_new.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Xrpt_DS_LTC.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Xrpt_DS_LTC.designer.cs">
+      <DependentUpon>Xrpt_DS_LTC.cs</DependentUpon>
+    </Compile>
     <Compile Include="Xrpt_PhieuDiemSV.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -168,6 +204,9 @@
     <EmbeddedResource Include="frmDiem.resx">
       <DependentUpon>frmDiem.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmDKLTC.resx">
+      <DependentUpon>frmDKLTC.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmHocPhi.resx">
       <DependentUpon>frmHocPhi.cs</DependentUpon>
     </EmbeddedResource>
@@ -176,6 +215,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmLop.resx">
       <DependentUpon>frmLop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLTC.resx">
+      <DependentUpon>frmLTC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
@@ -202,6 +244,12 @@
     <EmbeddedResource Include="Xfrm_BangDiemTongKetLop.resx">
       <DependentUpon>Xfrm_BangDiemTongKetLop.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Xfrm_DSSV_1LTC.resx">
+      <DependentUpon>Xfrm_DSSV_1LTC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Xfrm_DS_LTC.resx">
+      <DependentUpon>Xfrm_DS_LTC.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Xfrm_HocPhiTheoLop.resx">
       <DependentUpon>Xfrm_HocPhiTheoLop.cs</DependentUpon>
     </EmbeddedResource>
@@ -213,6 +261,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Xrpt_BangDiemTongKetLop.resx">
       <DependentUpon>Xrpt_BangDiemTongKetLop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Xrpt_DSSV_1LTC_new.resx">
+      <DependentUpon>Xrpt_DSSV_1LTC_new.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Xrpt_DS_LTC.resx">
+      <DependentUpon>Xrpt_DS_LTC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Xrpt_PhieuDiemSV.resx">
       <DependentUpon>Xrpt_PhieuDiemSV.cs</DependentUpon>

@@ -1,0 +1,19 @@
+﻿USE [QLDSV_TC]
+GO
+
+/****** Object:  StoredProcedure [dbo].[SP_LAY_DS_KHOA]    Script Date: 13/11/2021 4:07:48 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+-- LẤY TÊN CỦA CÁC KHOA
+CREATE proc [dbo].[SP_LAY_DS_KHOA_2]
+@ROLE NCHAR(10)
+as begin
+	IF(@ROLE = 'PGV')
+		select MAKHOA, TENKHOA from LINK0.QLDSV_TC.DBO.KHOA;
+	ELSE
+		SELECT MAKHOA, TENKHOA from KHOA;
+end
+GO

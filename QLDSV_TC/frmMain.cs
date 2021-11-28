@@ -150,5 +150,65 @@ namespace QLDSV_TC
                 f.Show();
             }
         }
+
+        private void btnNhapLTC_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (Program.role.Equals("SV")) return;
+
+            Form frm = this.checkExists(typeof(frmLTC));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmLTC f = new frmLTC();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btnDangKyLTC_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (Program.role.Equals("SV"))
+            {
+                Form frm = this.checkExists(typeof(frmDKLTC));
+
+                if (frm != null) frm.Activate();
+                else
+                {
+                    frmDKLTC f = new frmDKLTC();
+                    f.MdiParent = this;
+                    f.Show();
+                }
+            }
+            else
+                return;
+        }
+
+        private void btnBCDSLop_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (Program.role.Equals("SV")) return;
+
+            Form frm = this.checkExists(typeof(Xfrm_DS_LTC));
+            if (frm != null) frm.Activate();
+            else
+            {
+                Xfrm_DS_LTC f = new Xfrm_DS_LTC();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btnBCDKLTC_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (Program.role.Equals("SV")) return;
+
+            Form frm = this.checkExists(typeof(Xfrm_DSSV_1LTC));
+            if (frm != null) frm.Activate();
+            else
+            {
+                Xfrm_DSSV_1LTC f = new Xfrm_DSSV_1LTC();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
     }
 }
