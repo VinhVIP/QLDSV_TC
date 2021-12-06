@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -46,18 +47,28 @@ namespace QLDSV_TC
             String sql = "EXEC SP_LAY_TEN_KHOA " + maKhoa;
             Program.ExecSqlDataReader(sql);
             String khoa;
+            Int64 tong;
             Program.reader.Read();
 
             khoa = Program.reader.GetString(0);
 
             Program.reader.Close();
-            rpt.setInfo(maLop, khoa);
+            Program.ExecSqlDataReader("SP_SUM_HP_LOP", CommandType.StoredProcedure, new[] {
+                     new SqlParameter("@MALOP", SqlDbType.NVarChar){Value=maLop},
+                     new SqlParameter("@NIENKHOA", SqlDbType.NVarChar){Value=nienKhoa },
+                     new SqlParameter("@HOCKY", SqlDbType.Int){Value=hocKy},
+                 });
+            
+            Program.reader.Read();
 
+            tong = Int64.Parse(Program.reader.GetValue(0).ToString());
+
+            Program.reader.Close();
+            rpt.setInfo(maLop, khoa,tong);
 
             ReportPrintTool print = new ReportPrintTool(rpt);
 
             print.ShowPreview();
-            rpt.chuyenDoi();
             //print.ShowPreviewDialog();
 
         }

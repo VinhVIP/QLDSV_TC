@@ -138,7 +138,11 @@ namespace QLDSV_TC
                   {
                      MessageBox.Show("Thêm học phí thành công!", "Thông báo", MessageBoxButtons.OK);
                      load_dtDSHP();
-                  }
+                    gridView1.OptionsBehavior.ReadOnly = true;
+                    btnThemHP.Enabled = true;
+                    btnDongHP.Enabled = false;
+                    btnGhi.Enabled = false;
+                }
 
                 
             }
@@ -184,6 +188,9 @@ namespace QLDSV_TC
                     MessageBox.Show("Đóng học phí thành công!", "Thông báo", MessageBoxButtons.OK);
                     load_dtCTHP();
                     load_dtDSHP();
+                    btnGhi.Enabled = false;
+                    btnThemHP.Enabled = true;
+                    btnDongHP.Enabled = false;
                 }
                 else
                 {
@@ -195,11 +202,10 @@ namespace QLDSV_TC
 
             }
             
-            gridView1.OptionsBehavior.ReadOnly = true;
+            
 
-            btnThemHP.Enabled = true;
-            btnDongHP.Enabled = false;
-            btnGhi.Enabled = false;
+            
+            
         }
 
         private void gridView1_Click(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)

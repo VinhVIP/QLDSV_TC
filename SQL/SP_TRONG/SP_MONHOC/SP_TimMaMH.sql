@@ -1,0 +1,19 @@
+USE [QLDSV_TC]
+GO
+
+/****** Object:  StoredProcedure [dbo].[SP_TimMaMH]    Script Date: 12/6/2021 6:29:44 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[SP_TimMaMH] @MAMH nchar(10)
+as
+begin
+	if EXISTs (SELECT MAMH FROM MONHOC WHERE MAMH = @MAMH)
+	SELECT MAMH FROM MONHOC WHERE MAMH = @MAMH
+end
+
+GO
+

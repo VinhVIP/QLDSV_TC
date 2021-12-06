@@ -19,18 +19,15 @@ namespace QLDSV_TC
             
 
         }
-        public void setInfo(string maLop, string Khoa)
+        public void setInfo(string maLop, string Khoa, Int64 tong)
         {
             lblMaLop.Text = maLop.Trim();
             lblKhoa.Text = Khoa.Trim();
-            //Int64 Tien =Int64.Parse(TongTienDaDong.Text);
-            //lblTongDaDong.Text = Program.NumberToText(Tien);
+            
+            lblTongDaDong.Text = Program.NumberToText(tong);
             
         }
-        public void chuyenDoi()
-        {
-            lblTongDaDong.Text = TongTienDaDong.Text;
-        }
+        
          
     }
 }

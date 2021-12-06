@@ -37,7 +37,10 @@ namespace QLDSV_TC
             this.MONHOCTableAdapter.Fill(this.DS_MH.MONHOC);
             this.LOPTINCHITableAdapter.Connection.ConnectionString = Program.connString;
             this.LOPTINCHITableAdapter.Fill(this.DS_MH.LOPTINCHI);
-            
+            txtMAMH.Enabled = txtTENMH.Enabled = false;
+            gridView1.OptionsBehavior.ReadOnly = true;
+
+
 
         }
 
@@ -50,6 +53,7 @@ namespace QLDSV_TC
             btn_ThemMH.Enabled = btn_DelMH.Enabled = btn_Reload.Enabled = btn_Exit.Enabled = false;
             btn_SaveMH.Enabled = btn_Undo.Enabled = true;
             gcMONHOC.Enabled = false;
+            txtMAMH.Enabled = txtTENMH.Enabled = true;
         }
         private void btn_DelMH_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -83,87 +87,149 @@ namespace QLDSV_TC
 
         private void btn_SaveMH_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (txtMAMH.Text.Trim() == "")
+            if (btn_ThemMH.Enabled == false)
             {
-                MessageBox.Show("Mã môn học không được thiếu!", "", MessageBoxButtons.OK);
-                txtMAMH.Focus();
-                return;
-            }
-            if (isMaMHExists(txtMAMH.Text))
-            {
-                MessageBox.Show("Mã môn học đã tồn tại!", "", MessageBoxButtons.OK);
-                txtMAMH.Focus();
-                return;
-            }
-            if (txtTENMH.Text.Trim() == "")
-            {
-                MessageBox.Show("Tên môn học không được thiếu!", "", MessageBoxButtons.OK);
-                txtTENMH.Focus();
-                return;
-            }
-            if (isTenMHExists(txtTENMH.Text))
-            {
-                MessageBox.Show("Tên môn học đã tồn tại!", "", MessageBoxButtons.OK);
-                txtTENMH.Focus();
-                return;
-            }
-            if (txtSOTIETLT.Text.Trim() == "")
-            {
-                MessageBox.Show("Số tiết lý thuyết không được thiếu!", "", MessageBoxButtons.OK);
-                txtSOTIETLT.Focus();
-                return;
-            }
-
-            foreach (Char c in txtSOTIETLT.Text)
-            {
-                if (!Char.IsDigit(c))
+                if (txtMAMH.Text.Trim() == "")
                 {
-                    MessageBox.Show("Số tiết lý thuyết phải là 1 số nguyên!", "", MessageBoxButtons.OK);
+                    MessageBox.Show("Mã môn học không được thiếu!", "", MessageBoxButtons.OK);
+                    txtMAMH.Focus();
+                    return;
+                }
+                if (isMaMHExists(txtMAMH.Text.Trim()))
+                {
+                    MessageBox.Show("Mã môn học đã tồn tại!", "", MessageBoxButtons.OK);
+                    txtMAMH.Focus();
+                    return;
+                }
+                if (txtTENMH.Text.Trim() == "")
+                {
+                    MessageBox.Show("Tên môn học không được thiếu!", "", MessageBoxButtons.OK);
+                    txtTENMH.Focus();
+                    return;
+                }
+                if (isTenMHExists(txtTENMH.Text.Trim()))
+                {
+                    MessageBox.Show("Tên môn học đã tồn tại!", "", MessageBoxButtons.OK);
+                    txtTENMH.Focus();
+                    return;
+                }
+                if (txtSOTIETLT.Text.Trim() == "")
+                {
+                    MessageBox.Show("Số tiết lý thuyết không được thiếu!", "", MessageBoxButtons.OK);
                     txtSOTIETLT.Focus();
                     return;
                 }
-            }
-            if (txtSOTIETTH.Text.Trim() == "")
-            {
-                MessageBox.Show("Số tiết thực hành không được thiếu!", "", MessageBoxButtons.OK);
-                txtSOTIETTH.Focus();
-                return;
-            }
-            foreach (Char c in txtSOTIETTH.Text)
-            {
-                if (!Char.IsDigit(c))
+
+                foreach (Char c in txtSOTIETLT.Text.Trim())
                 {
-                    MessageBox.Show("Số tiết thực hành phải là 1 số nguyên!", "", MessageBoxButtons.OK);
+                    if (!Char.IsDigit(c))
+                    {
+                        MessageBox.Show("Số tiết lý thuyết phải là 1 số nguyên!", "", MessageBoxButtons.OK);
+                        txtSOTIETLT.Focus();
+                        return;
+                    }
+                }
+                if (txtSOTIETTH.Text.Trim() == "")
+                {
+                    MessageBox.Show("Số tiết thực hành không được thiếu!", "", MessageBoxButtons.OK);
+                    txtSOTIETTH.Focus();
+                    return;
+                }
+                foreach (Char c in txtSOTIETTH.Text.Trim())
+                {
+                    if (!Char.IsDigit(c))
+                    {
+                        MessageBox.Show("Số tiết thực hành phải là 1 số nguyên!", "", MessageBoxButtons.OK);
+                        txtSOTIETLT.Focus();
+                        return;
+                    }
+                }
+
+                int checkTongST = (Int32.Parse(txtSOTIETTH.Text.Trim()) + Int32.Parse(txtSOTIETLT.Text.Trim())) % 15;
+                if (checkTongST != 0)
+                {
+                    MessageBox.Show("Tổng tiết lý thuyết và thực hành phải là bội của số 15!", "", MessageBoxButtons.OK);
+                    txtSOTIETTH.Focus();
+                    return;
+                }
+
+                try
+                {
+                    bdsMH.EndEdit();
+                    bdsMH.ResetCurrentItem();
+                    MONHOCTableAdapter.Connection.ConnectionString = Program.connString;
+                    MONHOCTableAdapter.Update(DS_MH.MONHOC);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi ghi : " + ex.Message, "Thông báo", MessageBoxButtons.OK);
+                    return;
+                }
+
+                MessageBox.Show("Ghi thành công!", "Thông báo", MessageBoxButtons.OK);
+                
+            }
+            else
+            {
+                vitri = bdsMH.Position;
+                if (txtSOTIETLT.Text.Trim() == "")
+                {
+                    MessageBox.Show("Số tiết lý thuyết không được thiếu!", "", MessageBoxButtons.OK);
                     txtSOTIETLT.Focus();
                     return;
                 }
-            }
-            
-            int checkTongST = (Int32.Parse(txtSOTIETTH.Text) + Int32.Parse(txtSOTIETLT.Text)) % 15;
-            if (checkTongST != 0)
-            {
-                MessageBox.Show("Tổng tiết lý thuyết và thực hành phải là bội của số 15!", "", MessageBoxButtons.OK);
-                txtSOTIETTH.Focus();
-                return;
-            }
 
-            try
-            {
-                bdsMH.EndEdit();
-                bdsMH.ResetCurrentItem();
-                MONHOCTableAdapter.Connection.ConnectionString = Program.connString;
-                MONHOCTableAdapter.Update(DS_MH.MONHOC);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi ghi : " + ex.Message, "Thông báo", MessageBoxButtons.OK);
-                return;
-            }
+                foreach (Char c in txtSOTIETLT.Text.Trim())
+                {
+                    if (!Char.IsDigit(c))
+                    {
+                        MessageBox.Show("Số tiết lý thuyết phải là 1 số nguyên!", "", MessageBoxButtons.OK);
+                        txtSOTIETLT.Focus();
+                        return;
+                    }
+                }
+                if (txtSOTIETTH.Text.Trim() == "")
+                {
+                    MessageBox.Show("Số tiết thực hành không được thiếu!", "", MessageBoxButtons.OK);
+                    txtSOTIETTH.Focus();
+                    return;
+                }
+                foreach (Char c in txtSOTIETTH.Text.Trim())
+                {
+                    if (!Char.IsDigit(c))
+                    {
+                        MessageBox.Show("Số tiết thực hành phải là 1 số nguyên!", "", MessageBoxButtons.OK);
+                        txtSOTIETLT.Focus();
+                        return;
+                    }
+                }
 
-            MessageBox.Show("Ghi thành công!", "Thông báo", MessageBoxButtons.OK);
+                int checkTongST = (Int32.Parse(txtSOTIETTH.Text.Trim()) + Int32.Parse(txtSOTIETLT.Text.Trim())) % 15;
+                if (checkTongST != 0)
+                {
+                    MessageBox.Show("Tổng tiết lý thuyết và thực hành phải là bội của số 15!", "", MessageBoxButtons.OK);
+                    txtSOTIETTH.Focus();
+                    return;
+                }
+                try
+                {
+                    // Cập nhật
+                    bdsMH.EndEdit();
+                    bdsMH.ResetCurrentItem();
+                    MONHOCTableAdapter.Connection.ConnectionString = Program.connString;
+                    MONHOCTableAdapter.Update(DS_MH.MONHOC);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Cập nhật lớp thất bại: " + ex.Message, "Thông báo", MessageBoxButtons.OK);
+                    return;
+                }
+
+                MessageBox.Show("Cập nhật Môn học thành công!", "Thông báo", MessageBoxButtons.OK);
+            }
             gcMONHOC.Enabled = true;
-            btn_ThemMH.Enabled = btn_DelMH.Enabled = btn_Reload.Enabled = btn_Exit.Enabled = true;
-            btn_SaveMH.Enabled = btn_Undo.Enabled = false;
+            btn_SaveMH.Enabled = btn_Undo.Enabled = btn_ThemMH.Enabled = btn_DelMH.Enabled = btn_Reload.Enabled = btn_Exit.Enabled = true;
+            txtMAMH.Enabled = txtTENMH.Enabled = false;
         }
 
         private void btn_Undo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -176,9 +242,9 @@ namespace QLDSV_TC
             }
             bdsMH.Position = vitri;
             gcMONHOC.Enabled = true;
-            panelControl1.Enabled = false;
-            btn_ThemMH.Enabled = btn_DelMH.Enabled = btn_Reload.Enabled = btn_Exit.Enabled = true;
-            btn_SaveMH.Enabled = btn_Undo.Enabled = false;
+            btn_SaveMH.Enabled = btn_Undo.Enabled = btn_ThemMH.Enabled = btn_DelMH.Enabled = btn_Reload.Enabled = btn_Exit.Enabled = true;
+            txtMAMH.Enabled = txtTENMH.Enabled =  false;
+
         }
 
         private void btn_Reload_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
