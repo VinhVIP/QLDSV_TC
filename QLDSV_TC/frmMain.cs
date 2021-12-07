@@ -26,6 +26,22 @@ namespace QLDSV_TC
 
             Program.loginDN = Program.mLogin;
             Program.passDN = Program.pass;
+
+            if (Program.role.Equals("PGV") || Program.role.Equals("KHOA"))
+            {
+                btnDangKyLTC.Enabled = false;
+                btnDongHP.Enabled = false;
+                btnBCDongHP.Enabled = false;
+            }else if (Program.role.Equals("SV"))
+            {
+                btnNhapLop.Enabled = btnNhapMH.Enabled = btnNhapLTC.Enabled = btnNhapDiem.Enabled = btnDongHP.Enabled = false;
+                btnBCDSLop.Enabled = btnBCDKLTC.Enabled = btnBCDiemMH.Enabled = btnBCPhieuDiem.Enabled = btnBCDiemTongKet.Enabled = btnBCDongHP.Enabled = false;
+                btnTaoTK.Enabled = false;
+            }else if (Program.role.Equals("PKT"))
+            {
+                btnNhapLop.Enabled = btnNhapMH.Enabled = btnNhapLTC.Enabled = btnDangKyLTC.Enabled = btnNhapDiem.Enabled = false;
+                btnBCDSLop.Enabled = btnBCDKLTC.Enabled = btnBCDiemMH.Enabled = btnBCPhieuDiem.Enabled = btnBCDiemTongKet.Enabled = false;
+            }
         }
 
         private Form checkExists(Type frmType)
@@ -57,7 +73,15 @@ namespace QLDSV_TC
 
         private void btnNhapMH_ItemClick(object sender, ItemClickEventArgs e)
         {
-            
+            Form frm = this.checkExists(typeof(frmMH));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmMH f = new frmMH();
+                f.MdiParent = this;
+                f.Show();
+            }
+
         }
 
         private void btnTaoTK_ItemClick(object sender, ItemClickEventArgs e)

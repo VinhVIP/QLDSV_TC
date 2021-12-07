@@ -107,9 +107,9 @@ namespace QLDSV_TC
             this.label4.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(167, 144);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(92, 19);
+            this.label4.Size = new System.Drawing.Size(83, 19);
             this.label4.TabIndex = 6;
-            this.label4.Text = "Chọn Khoa:";
+            this.label4.Text = "Chọn Site:";
             // 
             // comboKhoa
             // 

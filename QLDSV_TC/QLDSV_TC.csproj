@@ -69,6 +69,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DS_MH.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_MH.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DS_LOP.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -183,6 +188,13 @@
     <Compile Include="Xrpt_BangDiemTongKetLop.Designer.cs">
       <DependentUpon>Xrpt_BangDiemTongKetLop.cs</DependentUpon>
     </Compile>
+
+    <Compile Include="Xrpt_InDSHP_LOP.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Xrpt_InDSHP_LOP.Designer.cs">
+      <DependentUpon>Xrpt_InDSHP_LOP.cs</DependentUpon>
+    </Compile>
     <Compile Include="Xrpt_DSSV_1LTC_new.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -194,6 +206,7 @@
     </Compile>
     <Compile Include="Xrpt_DS_LTC.designer.cs">
       <DependentUpon>Xrpt_DS_LTC.cs</DependentUpon>
+
     </Compile>
     <Compile Include="Xrpt_PhieuDiemSV.cs">
       <SubType>Component</SubType>
@@ -238,6 +251,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="DS_MH.xsc">
+      <DependentUpon>DS_MH.xsd</DependentUpon>
+    </None>
+    <None Include="DS_MH.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_MH.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DS_MH.xss">
+      <DependentUpon>DS_MH.xsd</DependentUpon>
+    </None>
     <EmbeddedResource Include="Xfrm_BangDiemMonHoc1LTC.resx">
       <DependentUpon>Xfrm_BangDiemMonHoc1LTC.cs</DependentUpon>
     </EmbeddedResource>
@@ -262,11 +286,16 @@
     <EmbeddedResource Include="Xrpt_BangDiemTongKetLop.resx">
       <DependentUpon>Xrpt_BangDiemTongKetLop.cs</DependentUpon>
     </EmbeddedResource>
+
+    <EmbeddedResource Include="Xrpt_InDSHP_LOP.resx">
+      <DependentUpon>Xrpt_InDSHP_LOP.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Xrpt_DSSV_1LTC_new.resx">
       <DependentUpon>Xrpt_DSSV_1LTC_new.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Xrpt_DS_LTC.resx">
       <DependentUpon>Xrpt_DS_LTC.cs</DependentUpon>
+
     </EmbeddedResource>
     <EmbeddedResource Include="Xrpt_PhieuDiemSV.resx">
       <DependentUpon>Xrpt_PhieuDiemSV.cs</DependentUpon>

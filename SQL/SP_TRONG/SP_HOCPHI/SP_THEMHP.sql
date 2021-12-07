@@ -1,0 +1,30 @@
+USE [QLDSV_TC]
+GO
+
+/****** Object:  StoredProcedure [dbo].[SP_THEMHP]    Script Date: 12/6/2021 6:40:30 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[SP_THEMHP] @MASV nchar(10),
+@NIENKHOA nchar(9),
+@HOCKY INT,
+@HOCPHI INT
+as begin
+	IF EXISTS (SELECT LTC.MALTC FROM
+		(SELECT MALTC FROM LINK0.QLDSV_TC.DBO.LOPTINCHI WHERE NIENKHOA = @NIENKHOA AND HOCKY =@HOCKY AND HUYLOP = 'FALSE') AS LTC,
+		(SELECT MALTC FROM LINK0.QLDSV_TC.DBO.DANGKY WHERE MASV =@MASV AND HUYDANGKY = 'FALSE') AS DK
+		WHERE LTC.MALTC =DK.MALTC)
+	begin
+		IF EXISTS (SELECT * FROM HOCPHI WHERE MASV=@MASV AND NIENKHOA=@NIENKHOA AND  HOCKY=@HOCKY)
+	RAISERROR ('Niên khóa, học kỳ này đã tồn tại, vui lòng kiểm tra lại!', 11, 1);
+	ELSE 
+	INSERT INTO HOCPHI(MASV, NIENKHOA, HOCKY, HOCPHI) VALUES (@MASV, @NIENKHOA,@HOCKY, @HOCPHI);
+	end
+	else
+	 RAISERROR ('sinh viên chưa đăng ký môn nào trong niên khóa, học kì này nên ko thể thêm học phí!, vui lòng kiểm tra lại!', 11, 1);
+end;
+GO
+
