@@ -16,7 +16,8 @@ namespace QLDSV_TC
     {
 
         private String maLTC;
-        private DataTable dtDSDK;
+        private DataTable dtDSDK, dtCopy;
+        private HashSet<int> indexChange = new HashSet<int>();
 
         public frmDiem()
         {
@@ -94,14 +95,24 @@ namespace QLDSV_TC
 
             float diemCC, diemGK, diemCK, diemTK;
 
+            // Copy
+            dtCopy = new DataTable();
+            dtCopy.Columns.Add("MASV", typeof(string));
+            dtCopy.Columns.Add("DIEM_CC", typeof(float));
+            dtCopy.Columns.Add("DIEM_GK", typeof(float));
+            dtCopy.Columns.Add("DIEM_CK", typeof(float));
+
             for (int i = 0; i < dtDSDK.Rows.Count; i++)
             {
                 diemCC = dtDSDK.Rows[i]["DIEM_CC"].ToString().Length == 0 ? 0 : float.Parse(dtDSDK.Rows[i]["DIEM_CC"].ToString());
                 diemGK = dtDSDK.Rows[i]["DIEM_GK"].ToString().Length == 0 ? 0 : float.Parse(dtDSDK.Rows[i]["DIEM_GK"].ToString());
                 diemCK = dtDSDK.Rows[i]["DIEM_CK"].ToString().Length == 0 ? 0 : float.Parse(dtDSDK.Rows[i]["DIEM_CK"].ToString());
-               
+
                 diemTK = diemCC * 0.1f + diemGK * 0.3f + diemCK * 0.6f;
                 dtDSDK.Rows[i]["DIEM_TK"] = diemTK.ToString("0.##");
+
+                // Copy data
+                dtCopy.Rows.Add(dtDSDK.Rows[i]["MASV"], dtDSDK.Rows[i]["DIEM_CC"], dtDSDK.Rows[i]["DIEM_GK"], dtDSDK.Rows[i]["DIEM_CK"]);
             }
 
             dtDSDK.Columns["MASV"].ReadOnly = true;
@@ -109,6 +120,8 @@ namespace QLDSV_TC
             dtDSDK.Columns["DIEM_TK"].ReadOnly = true;
 
             gcDiem.DataSource = dtDSDK;
+
+            indexChange.Clear();
         }
 
         private void btnGhiDiem_Click(object sender, EventArgs e)
@@ -121,9 +134,14 @@ namespace QLDSV_TC
             dt.Columns.Add("DIEM_CK", typeof(float));
 
             int ltc = int.Parse(maLTC);
-   
-            for(int i=0; i<dtDSDK.Rows.Count; i++) { 
-                dt.Rows.Add(ltc, dtDSDK.Rows[i]["MASV"], dtDSDK.Rows[i]["DIEM_CC"], dtDSDK.Rows[i]["DIEM_GK"], dtDSDK.Rows[i]["DIEM_CK"]);   
+
+            for (int i = 0; i < dtDSDK.Rows.Count; i++)
+            {
+                if (isSameData(dtCopy.Rows[i], dtDSDK.Rows[i]) == false)
+                {
+                    dt.Rows.Add(ltc, dtDSDK.Rows[i]["MASV"], dtDSDK.Rows[i]["DIEM_CC"], dtDSDK.Rows[i]["DIEM_GK"], dtDSDK.Rows[i]["DIEM_CK"]);
+                    Console.WriteLine(dtDSDK.Rows[i]["MASV"]);
+                }
             }
 
             SqlParameter param = new SqlParameter();
@@ -140,12 +158,20 @@ namespace QLDSV_TC
                 sqlCmd.CommandType = CommandType.StoredProcedure;
                 sqlCmd.Parameters.Add(param);
                 sqlCmd.ExecuteNonQuery();
+
+                MessageBox.Show("Ghi điểm thành công!", "Thông báo", MessageBoxButtons.OK);
+
+                dtCopy.Clear();
+                for (int i = 0; i < dtDSDK.Rows.Count; i++)
+                {
+                    dtCopy.Rows.Add(dtDSDK.Rows[i]["MASV"], dtDSDK.Rows[i]["DIEM_CC"], dtDSDK.Rows[i]["DIEM_GK"], dtDSDK.Rows[i]["DIEM_CK"]);
+                }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Lỗi ghi điểm: " + ex.Message, "Thông báo", MessageBoxButtons.OK);
             }
-            
+
         }
 
         private void goToNextCell(int row, int col)
@@ -158,11 +184,8 @@ namespace QLDSV_TC
                 }
                 else if (col > 4)
                 {
-                    if (row < dtDSDK.Rows.Count)
-                    {
-                        row++;
-                        col = 2;
-                    }
+                    col = 2;
+                    row = Math.Min(dtDSDK.Rows.Count - 1, row + 1);
                 }
                 gcDiem.CurrentCell = gcDiem.Rows[row].Cells[col];
             }
@@ -174,11 +197,12 @@ namespace QLDSV_TC
 
         private void gcDiem_KeyUp(object sender, KeyEventArgs e)
         {
-            if(mustEdit)
+            if (mustEdit)
             {
                 gcDiem.CurrentCell = gcDiem.Rows[row].Cells[col];
                 mustEdit = false;
-            }else if (e.KeyCode == Keys.Tab)
+            }
+            else if (e.KeyCode == Keys.Tab)
             {
                 e.Handled = true;
                 goToNextCell(gcDiem.CurrentCell.RowIndex, gcDiem.CurrentCell.ColumnIndex);
@@ -193,7 +217,7 @@ namespace QLDSV_TC
 
             float diemTK = diemCC * 0.1f + diemGK * 0.3f + diemCK * 0.6f;
             dtDSDK.Columns["DIEM_TK"].ReadOnly = false;
-            gcDiem.Rows[row].Cells[5].Value = diemTK.ToString("0.##"); 
+            gcDiem.Rows[row].Cells[5].Value = diemTK.ToString("0.##");
             dtDSDK.Columns["DIEM_TK"].ReadOnly = true;
         }
 
@@ -214,7 +238,7 @@ namespace QLDSV_TC
                         col = e.ColumnIndex;
 
                         MessageBox.Show("Điểm phải nằm trong phạm vi 0-10", "Thông báo", MessageBoxButtons.OK);
-  
+
                         rowView.RejectChanges();
                         tinhDiemTK(e.RowIndex);
 
@@ -227,8 +251,15 @@ namespace QLDSV_TC
                 rowView.AcceptChanges();
                 mustEdit = false;
             }
-            
+
             tinhDiemTK(e.RowIndex);
+        }
+
+        private bool isSameData(DataRow a, DataRow b)
+        {
+            return a["DIEM_CC"].ToString().Trim().Equals(b["DIEM_CC"].ToString().Trim()) &&
+                a["DIEM_GK"].ToString().Trim().Equals(b["DIEM_GK"].ToString().Trim()) &&
+                a["DIEM_CK"].ToString().Trim().Equals(b["DIEM_CK"].ToString().Trim());
         }
 
     }

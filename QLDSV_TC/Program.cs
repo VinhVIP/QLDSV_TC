@@ -5,6 +5,8 @@ using System.Data.SqlClient;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace QLDSV_TC
 {
@@ -208,6 +210,19 @@ namespace QLDSV_TC
             adapter.Fill(dataTable);
             conn.Close();
             return dataTable;
+        }
+
+        public static string encrypt(string text)
+        {
+            MD5 md5 = new MD5CryptoServiceProvider();
+            md5.ComputeHash(new UTF8Encoding().GetBytes(text));
+            byte[] res = md5.Hash;
+            StringBuilder sb = new StringBuilder();
+            for(int i=0; i<res.Length; i++)
+            {
+                sb.Append(res[i].ToString("x2"));
+            }
+            return sb.ToString();
         }
 
     }

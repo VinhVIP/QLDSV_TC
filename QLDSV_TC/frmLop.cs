@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -16,10 +17,9 @@ namespace QLDSV_TC
     {
 
         private String maKhoa, maLop;
-        private DataTable dtSV;
+        private DataTable dtSV, dtCopy;
 
         private int lastLopPosition;
-        private bool committed = true;
 
         private String curServer;
         private String curLogin, curPass;
@@ -98,7 +98,7 @@ namespace QLDSV_TC
             }
         }
 
-        DataTable dtCopy;
+        
 
         private void btnLoadDSSV_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -128,10 +128,33 @@ namespace QLDSV_TC
                 gvSV.Rows[i].Cells[0].ReadOnly = true;
             }
 
-            committed = true;
-
             gcLop.Enabled = panelLop.Enabled = btnThem.Enabled = btnXoa.Enabled = btnLoadDSSV.Enabled = btnReload.Enabled = false;
             gvSV.Enabled = btnGhi.Enabled = btnUndo.Enabled = true;
+
+            ((DataGridViewTextBoxColumn)gvSV.Columns["MASV"]).MaxInputLength = 10;
+            ((DataGridViewTextBoxColumn)gvSV.Columns["HO"]).MaxInputLength = 50;
+            ((DataGridViewTextBoxColumn)gvSV.Columns["TEN"]).MaxInputLength = 10;
+            ((DataGridViewTextBoxColumn)gvSV.Columns["DIACHI"]).MaxInputLength = 100;
+
+            // gvSV.Columns["TEN"].SortMode = DataGridViewColumnSortMode.NotSortable;
+
+            // gvSV.Sort(gvSV.Columns["MASV"], ListSortDirection.Descending);
+
+            disableSortGVSV();
+
+        }
+
+        private void disableSortGVSV()
+        {
+            foreach (DataGridViewColumn column in gvSV.Columns)
+            {
+                column.SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
+        }
+
+        private void gvSV_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+           
         }
 
         private void btnXoaSV_Click(object sender, EventArgs e)
@@ -175,10 +198,12 @@ namespace QLDSV_TC
 
         private void btnThemSV_Click(object sender, EventArgs e)
         {
+           
             dtSV.Rows.Add();
 
             dtSV.Rows[dtSV.Rows.Count - 1]["PHAI"] = false;
             dtSV.Rows[dtSV.Rows.Count - 1]["DANGHIHOC"] = false;
+            dtSV.Rows[dtSV.Rows.Count - 1]["PASSWORD"] = Program.encrypt("123456");
 
             gvSV.CurrentCell = gvSV.Rows[dtSV.Rows.Count - 1].Cells["MASV"];
             gvSV.BeginEdit(true);
@@ -188,11 +213,6 @@ namespace QLDSV_TC
         private void bdsLOP_PositionChanged(object sender, EventArgs e)
         {
             if (dtSV != null && dtSV.Rows.Count > 0) dtSV.Clear();
-        }
-
-        private void gvSV_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-        {
-            committed = false;
         }
 
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -280,13 +300,19 @@ namespace QLDSV_TC
                     txtKhoaHoc.Focus();
                     return;
                 }
+                else if(Regex.IsMatch(txtKhoaHoc.Text, "^[0-9]{4}-[0-9]{4}$") == false)
+                {
+                    MessageBox.Show("Khóa học phải có định dạng ####-####", "Thông báo", MessageBoxButtons.OK);
+                    txtKhoaHoc.Focus();
+                    return;
+                }
 
 
                 string maLop = txtMaLop.Text.Trim();
 
                 if (Program.ExecSqlNonQuery("SP_THEM_LOP", CommandType.StoredProcedure, new[]
                 {
-                        new SqlParameter("@malop", SqlDbType.NChar){Value=maLop},
+                        new SqlParameter("@malop", SqlDbType.NChar){Value=maLop.ToUpper()},
                         new SqlParameter("@tenlop", SqlDbType.NVarChar){Value=txtTenLop.Text.Trim()},
                         new SqlParameter("@khoahoc", SqlDbType.NChar){Value=txtKhoaHoc.Text.Trim()},
                         new SqlParameter("@makhoa", SqlDbType.NChar){Value=txtMaKhoa.Text}
@@ -299,6 +325,7 @@ namespace QLDSV_TC
                     
                     btnGhi.Enabled = btnThem.Enabled = btnXoa.Enabled = btnLoadDSSV.Enabled = btnReload.Enabled = gcLop.Enabled = true;
                     btnUndo.Enabled = gvSV.Enabled = panelLop.Enabled = false;
+
                 }
                 
             }
@@ -358,11 +385,58 @@ namespace QLDSV_TC
 
                     for (int i = 0; i < dtSV.Rows.Count; i++)
                     {
-                        int index = indexRow(dtCopy, dtSV.Rows[i]);
+
+                        if(i < dtCopy.Rows.Count)
+                        {
+                            // Cập nhật
+                            int index = indexRow(dtCopy, dtSV.Rows[i]);
+                            if (index != -1)
+                            {
+                                if (!isSameRow(dtSV.Rows[i], dtCopy.Rows[index]))
+                                {
+                                    Console.WriteLine(dtSV.Rows[i]["MASV"] + " Edit");
+
+                                    dt.Rows.Add(dtSV.Rows[i]["MASV"].ToString().ToUpper(),
+                                       formatName(dtSV.Rows[i]["HO"].ToString()),
+                                       formatWord(dtSV.Rows[i]["TEN"].ToString().Trim()),
+                                       dtSV.Rows[i]["PHAI"],
+                                       dtSV.Rows[i]["DIACHI"],
+                                       convertDate(dtSV.Rows[i]["NGAYSINH"].ToString()),
+                                       maLop,
+                                       dtSV.Rows[i]["DANGHIHOC"],
+                                       dtSV.Rows[i]["PASSWORD"],
+                                       false
+                                    );
+                                }
+                            }
+                            else
+                            {
+                                Console.WriteLine("index = -1");
+                            }
+                        }
+                        else
+                        {
+                            // Thêm mới
+                            Console.WriteLine(dtSV.Rows[i]["MASV"] + " - " + i);
+
+                            dt.Rows.Add(dtSV.Rows[i]["MASV"].ToString().ToUpper(),
+                                   formatName(dtSV.Rows[i]["HO"].ToString()),
+                                   formatWord(dtSV.Rows[i]["TEN"].ToString().Trim()),
+                                   dtSV.Rows[i]["PHAI"],
+                                   dtSV.Rows[i]["DIACHI"],
+                                   convertDate(dtSV.Rows[i]["NGAYSINH"].ToString()),
+                                   maLop,
+                                   dtSV.Rows[i]["DANGHIHOC"],
+                                   dtSV.Rows[i]["PASSWORD"],
+                                   true
+                            );
+                        }
+
+                        /*int index = indexRow(dtCopy, dtSV.Rows[i]);
                         if(index == -1)
                         {
                             // Thêm mới
-                            Console.WriteLine(dtSV.Rows[i]["MASV"]);
+                            Console.WriteLine(dtSV.Rows[i]["MASV"] + " - " + i);
 
                             dt.Rows.Add(dtSV.Rows[i]["MASV"], 
                                    formatName(dtSV.Rows[i]["HO"].ToString()),
@@ -396,7 +470,7 @@ namespace QLDSV_TC
 
                                
                             }
-                        }
+                        }*/
                         
                     }
 
@@ -456,7 +530,6 @@ namespace QLDSV_TC
 
                     MessageBox.Show("Ghi thành công!", "Thông báo", MessageBoxButtons.OK);
 
-                    committed = true;
 
                     btnThem.Enabled = btnGhi.Enabled = btnXoa.Enabled = btnLoadDSSV.Enabled = gcLop.Enabled = btnReload.Enabled = true;
                     btnUndo.Enabled = gvSV.Enabled = panelLop.Enabled = false;
@@ -490,13 +563,14 @@ namespace QLDSV_TC
             //return true;
         }
 
+
         private String formatName(string name)
         {
             string[] list = name.Split(' ');
             string res = "";
             foreach(string s in list)
             {
-                res += formatWord(s) + " ";
+                if(s.Length > 0) res += formatWord(s) + " ";
             }
             return res.Trim();
         }

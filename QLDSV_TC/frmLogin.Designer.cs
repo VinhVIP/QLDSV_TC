@@ -66,6 +66,7 @@ namespace QLDSV_TC
             this.txtMK.Name = "txtMK";
             this.txtMK.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMK.Properties.Appearance.Options.UseFont = true;
+            this.txtMK.Properties.PasswordChar = '*';
             this.txtMK.Size = new System.Drawing.Size(225, 26);
             this.txtMK.TabIndex = 2;
             // 

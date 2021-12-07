@@ -85,7 +85,7 @@ namespace QLDSV_TC
 
                     Program.ExecSqlDataReader("SP_LayLoginSV", CommandType.StoredProcedure, new[] {
                         new SqlParameter("@MASV", SqlDbType.NVarChar){Value=txtTK.Text.Trim()},
-                        new SqlParameter("@PASSWORD", SqlDbType.NVarChar){Value=txtMK.Text.Trim()}
+                        new SqlParameter("@PASSWORD", SqlDbType.NVarChar){Value=Program.encrypt(txtMK.Text.Trim())}
                     });
 
                     if (Program.reader == null)

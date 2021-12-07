@@ -335,6 +335,7 @@ namespace QLDSV_TC
             // 
             this.colMALOP.FieldName = "MALOP";
             this.colMALOP.Name = "colMALOP";
+            this.colMALOP.OptionsColumn.AllowEdit = false;
             this.colMALOP.Visible = true;
             this.colMALOP.VisibleIndex = 0;
             // 
@@ -397,6 +398,7 @@ namespace QLDSV_TC
             this.txtMaLop.Location = new System.Drawing.Point(142, 77);
             this.txtMaLop.MenuManager = this.barManager2;
             this.txtMaLop.Name = "txtMaLop";
+            this.txtMaLop.Properties.MaxLength = 10;
             this.txtMaLop.Size = new System.Drawing.Size(172, 20);
             this.txtMaLop.TabIndex = 1;
             // 
@@ -406,6 +408,7 @@ namespace QLDSV_TC
             this.txtTenLop.Location = new System.Drawing.Point(141, 123);
             this.txtTenLop.MenuManager = this.barManager2;
             this.txtTenLop.Name = "txtTenLop";
+            this.txtTenLop.Properties.MaxLength = 50;
             this.txtTenLop.Size = new System.Drawing.Size(173, 20);
             this.txtTenLop.TabIndex = 3;
             // 
@@ -415,6 +418,7 @@ namespace QLDSV_TC
             this.txtKhoaHoc.Location = new System.Drawing.Point(142, 166);
             this.txtKhoaHoc.MenuManager = this.barManager2;
             this.txtKhoaHoc.Name = "txtKhoaHoc";
+            this.txtKhoaHoc.Properties.MaxLength = 9;
             this.txtKhoaHoc.Size = new System.Drawing.Size(172, 20);
             this.txtKhoaHoc.TabIndex = 5;
             // 
@@ -468,6 +472,7 @@ namespace QLDSV_TC
             this.gvSV.Name = "gvSV";
             this.gvSV.Size = new System.Drawing.Size(744, 415);
             this.gvSV.TabIndex = 0;
+            this.gvSV.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvSV_CellValueChanged);
             // 
             // frmLop
             // 
