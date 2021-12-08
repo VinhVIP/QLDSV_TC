@@ -121,10 +121,12 @@ namespace QLDSV_TC
             this.comboNK.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboNK.FormattingEnabled = true;
             this.comboNK.Items.AddRange(new object[] {
+            "2018-2019",
             "2019-2020",
             "2020-2021",
             "2021-2022"});
             this.comboNK.Location = new System.Drawing.Point(670, 124);
+            this.comboNK.MaxLength = 9;
             this.comboNK.Name = "comboNK";
             this.comboNK.Size = new System.Drawing.Size(160, 26);
             this.comboNK.TabIndex = 13;
@@ -162,6 +164,7 @@ namespace QLDSV_TC
             "3",
             "4"});
             this.comboNhom.Location = new System.Drawing.Point(670, 198);
+            this.comboNhom.MaxLength = 2;
             this.comboNhom.Name = "comboNhom";
             this.comboNhom.Size = new System.Drawing.Size(160, 26);
             this.comboNhom.TabIndex = 15;
@@ -217,7 +220,6 @@ namespace QLDSV_TC
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1003, 413);
             this.Controls.Add(this.btnPreview);
-            this.Controls.Add(this.comboMH);
             this.Controls.Add(this.comboNhom);
             this.Controls.Add(this.comboHK);
             this.Controls.Add(this.comboNK);
@@ -227,6 +229,7 @@ namespace QLDSV_TC
             this.Controls.Add(this.label2);
             this.Controls.Add(this.comboKhoa);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.comboMH);
             this.Name = "Xfrm_BangDiemMonHoc1LTC";
             this.Text = "Xfrm_BangDiemMonHoc1LTC";
             this.Load += new System.EventHandler(this.Xfrm_BangDiemMonHoc1LTC_Load);

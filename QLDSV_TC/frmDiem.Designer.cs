@@ -133,13 +133,19 @@ namespace QLDSV_TC
             // 
             // comboHK
             // 
+            this.comboHK.AutoCompleteCustomSource.AddRange(new string[] {
+            "1",
+            "2",
+            "3",
+            "4"});
             this.comboHK.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboHK.Font = new System.Drawing.Font("Tahoma", 10F);
             this.comboHK.FormattingEnabled = true;
             this.comboHK.Items.AddRange(new object[] {
             "1",
             "2",
-            "3"});
+            "3",
+            "4"});
             this.comboHK.Location = new System.Drawing.Point(679, 24);
             this.comboHK.Name = "comboHK";
             this.comboHK.Size = new System.Drawing.Size(121, 24);
@@ -151,10 +157,11 @@ namespace QLDSV_TC
             this.comboNK.FormattingEnabled = true;
             this.comboNK.Items.AddRange(new object[] {
             "2018-2019",
-            "2018-2023",
+            "2019-2020",
             "2020-2021",
             "2021-2022"});
             this.comboNK.Location = new System.Drawing.Point(406, 24);
+            this.comboNK.MaxLength = 9;
             this.comboNK.Name = "comboNK";
             this.comboNK.Size = new System.Drawing.Size(121, 24);
             this.comboNK.TabIndex = 2;

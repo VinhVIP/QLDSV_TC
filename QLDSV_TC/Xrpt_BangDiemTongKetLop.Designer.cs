@@ -147,7 +147,7 @@ namespace QLDSV_TC
             this.labelKhoa.Multiline = true;
             this.labelKhoa.Name = "labelKhoa";
             this.labelKhoa.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.labelKhoa.SizeF = new System.Drawing.SizeF(100F, 23F);
+            this.labelKhoa.SizeF = new System.Drawing.SizeF(271.875F, 23.00002F);
             this.labelKhoa.StylePriority.UseFont = false;
             this.labelKhoa.Text = "xrLabel1";
             // 

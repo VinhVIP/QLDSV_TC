@@ -53,6 +53,7 @@ namespace QLDSV_TC
             this.txtMASV.Name = "txtMASV";
             this.txtMASV.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMASV.Properties.Appearance.Options.UseFont = true;
+            this.txtMASV.Properties.MaxLength = 10;
             this.txtMASV.Size = new System.Drawing.Size(217, 24);
             this.txtMASV.TabIndex = 1;
             // 

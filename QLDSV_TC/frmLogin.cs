@@ -98,14 +98,15 @@ namespace QLDSV_TC
 
                     if (Program.reader.Read())
                     {
-                        Program.server = Program.reader.GetString(3);
+                        Program.server = Program.reader.GetString(2);
+                        Program.mKhoa = Program.reader.GetString(1);
                         Program.mLogin = Program.loginSV;
                         Program.pass = Program.passSV;
 
 
                         // Lưu trữ thông tin sinh viên đăng nhập
-                        Program.username = Program.reader.GetString(0).Trim();
-                        Program.fullName = Program.reader.GetString(1);
+                        Program.username = txtTK.Text.Trim().ToUpper();
+                        Program.fullName = Program.reader.GetString(0);
                         Program.role = "SV";
 
                         Program.reader.Close();

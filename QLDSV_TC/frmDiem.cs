@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -17,7 +18,7 @@ namespace QLDSV_TC
 
         private String maLTC;
         private DataTable dtDSDK, dtCopy;
-        private HashSet<int> indexChange = new HashSet<int>();
+        //private HashSet<int> indexChange = new HashSet<int>();
 
         public frmDiem()
         {
@@ -32,6 +33,8 @@ namespace QLDSV_TC
 
             comboKhoa.SelectedValue = Program.mKhoa;
             comboKhoa.Enabled = Program.role == "PGV";
+
+            comboNK.SelectedIndex = comboHK.SelectedIndex = 0;
         }
 
         private void comboKhoa_SelectedIndexChanged(object sender, EventArgs e)
@@ -74,6 +77,18 @@ namespace QLDSV_TC
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if(comboNK.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Vui lòng nhập niên khóa!", "Thông báo", MessageBoxButtons.OK);
+                comboNK.Focus();
+                return;
+            }else if (Regex.IsMatch(comboNK.Text, "^[0-9]{4}-[0-9]{4}$") == false)
+            {
+                MessageBox.Show("Niên khóa phải có định dạng ####-####", "Lỗi", MessageBoxButtons.OK);
+                comboNK.Focus();
+                return;
+            }
+
             try
             {
                 this.SP_LAY_DS_LTCTableAdapter.Connection.ConnectionString = Program.connString;
@@ -121,7 +136,7 @@ namespace QLDSV_TC
 
             gcDiem.DataSource = dtDSDK;
 
-            indexChange.Clear();
+            //indexChange.Clear();
         }
 
         private void btnGhiDiem_Click(object sender, EventArgs e)

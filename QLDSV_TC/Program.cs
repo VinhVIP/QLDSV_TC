@@ -222,9 +222,8 @@ namespace QLDSV_TC
             
 
             // -12345678.3445435 => "-12345678"
-            string sNumber = inputNumber.ToString("#");
-            Console.WriteLine(sNumber);
-            Int64 number = Convert.ToInt64(sNumber);
+            string sNumber = inputNumber.ToString();
+
 
 
 
@@ -235,7 +234,7 @@ namespace QLDSV_TC
             string result = " ";
 
 
-            if (positionDigit == 0)
+            if (positionDigit == 0 || inputNumber ==0)
                 result = unitNumbers[0] + result;
             else
             {

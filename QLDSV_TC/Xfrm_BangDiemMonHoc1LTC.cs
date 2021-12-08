@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -31,10 +32,51 @@ namespace QLDSV_TC
 
             comboKhoa.SelectedValue = Program.mKhoa;
             comboKhoa.Enabled = Program.role == "PGV";
+
+            comboHK.SelectedIndex = comboNK.SelectedIndex = comboNhom.SelectedIndex = 0;
         }
 
         private void btnPreview_Click(object sender, EventArgs e)
         {
+
+            if (comboNK.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Vui lòng nhập niên khóa!", "Thông báo", MessageBoxButtons.OK);
+                comboNK.Focus();
+                return;
+            }
+            else if (Regex.IsMatch(comboNK.Text, "^[0-9]{4}-[0-9]{4}$") == false)
+            {
+                MessageBox.Show("Niên khóa phải có định dạng ####-####", "Lỗi", MessageBoxButtons.OK);
+                comboNK.Focus();
+                return;
+            }
+
+            if (comboNhom.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Vui lòng nhập nhóm!", "Thông báo", MessageBoxButtons.OK);
+                comboNhom.Focus();
+                return;
+            }
+
+            int nhom;
+
+            try
+            {
+                nhom = int.Parse(comboNhom.Text.Trim());
+            }catch(Exception ex)
+            {
+                MessageBox.Show("Nhóm không đúng định dạng!", "Thông báo", MessageBoxButtons.OK);
+                comboNhom.Focus();
+                return;
+            }
+
+            if (nhom == 0)
+            {
+                MessageBox.Show("Nhóm không hợp lệ!", "Thông báo", MessageBoxButtons.OK);
+                comboNhom.Focus();
+                return;
+            }
 
             //Console.WriteLine("text: " + comboMH.Text);
             //Console.WriteLine("selected value: " + comboMH.SelectedValue);
@@ -44,7 +86,7 @@ namespace QLDSV_TC
                 int.Parse(comboHK.Text),
                 comboMH.SelectedValue.ToString(), //maMH
                 comboMH.Text,   // tenMH
-                int.Parse(comboNhom.Text)
+                nhom
             );
 
             ReportPrintTool print = new ReportPrintTool(rpt);

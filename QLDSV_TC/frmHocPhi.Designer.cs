@@ -73,13 +73,13 @@ namespace QLDSV_TC
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1384, 50);
+            this.panelControl1.Size = new System.Drawing.Size(1443, 50);
             this.panelControl1.TabIndex = 4;
             // 
             // btnGhi
             // 
             this.btnGhi.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGhi.Location = new System.Drawing.Point(1184, 12);
+            this.btnGhi.Location = new System.Drawing.Point(1347, 12);
             this.btnGhi.Name = "btnGhi";
             this.btnGhi.Size = new System.Drawing.Size(84, 27);
             this.btnGhi.TabIndex = 10;
@@ -90,7 +90,7 @@ namespace QLDSV_TC
             // btnDongHP
             // 
             this.btnDongHP.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDongHP.Location = new System.Drawing.Point(1025, 12);
+            this.btnDongHP.Location = new System.Drawing.Point(1229, 12);
             this.btnDongHP.Name = "btnDongHP";
             this.btnDongHP.Size = new System.Drawing.Size(112, 27);
             this.btnDongHP.TabIndex = 9;
@@ -101,7 +101,7 @@ namespace QLDSV_TC
             // btnThemHP
             // 
             this.btnThemHP.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThemHP.Location = new System.Drawing.Point(871, 12);
+            this.btnThemHP.Location = new System.Drawing.Point(1101, 12);
             this.btnThemHP.Name = "btnThemHP";
             this.btnThemHP.Size = new System.Drawing.Size(122, 27);
             this.btnThemHP.TabIndex = 8;
@@ -112,18 +112,18 @@ namespace QLDSV_TC
             // txtMaLop
             // 
             this.txtMaLop.Enabled = false;
-            this.txtMaLop.Location = new System.Drawing.Point(536, 13);
+            this.txtMaLop.Location = new System.Drawing.Point(712, 13);
             this.txtMaLop.Name = "txtMaLop";
             this.txtMaLop.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaLop.Properties.Appearance.Options.UseFont = true;
-            this.txtMaLop.Size = new System.Drawing.Size(291, 24);
+            this.txtMaLop.Size = new System.Drawing.Size(359, 24);
             this.txtMaLop.TabIndex = 7;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(479, 16);
+            this.label3.Location = new System.Drawing.Point(645, 16);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(61, 18);
             this.label3.TabIndex = 6;
@@ -132,18 +132,18 @@ namespace QLDSV_TC
             // txtTenSV
             // 
             this.txtTenSV.Enabled = false;
-            this.txtTenSV.Location = new System.Drawing.Point(348, 13);
+            this.txtTenSV.Location = new System.Drawing.Point(421, 13);
             this.txtTenSV.Name = "txtTenSV";
             this.txtTenSV.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTenSV.Properties.Appearance.Options.UseFont = true;
-            this.txtTenSV.Size = new System.Drawing.Size(125, 24);
+            this.txtTenSV.Size = new System.Drawing.Size(200, 24);
             this.txtTenSV.TabIndex = 5;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(290, 16);
+            this.label2.Location = new System.Drawing.Point(353, 16);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(62, 18);
             this.label2.TabIndex = 4;
@@ -152,7 +152,7 @@ namespace QLDSV_TC
             // btnSearch
             // 
             this.btnSearch.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(210, 12);
+            this.btnSearch.Location = new System.Drawing.Point(246, 12);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(74, 27);
             this.btnSearch.TabIndex = 3;
@@ -162,11 +162,12 @@ namespace QLDSV_TC
             // 
             // txtMASV
             // 
-            this.txtMASV.Location = new System.Drawing.Point(93, 13);
+            this.txtMASV.Location = new System.Drawing.Point(105, 13);
             this.txtMASV.Name = "txtMASV";
             this.txtMASV.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMASV.Properties.Appearance.Options.UseFont = true;
-            this.txtMASV.Size = new System.Drawing.Size(111, 24);
+            this.txtMASV.Properties.MaxLength = 10;
+            this.txtMASV.Size = new System.Drawing.Size(127, 24);
             this.txtMASV.TabIndex = 2;
             // 
             // label1
@@ -257,14 +258,14 @@ namespace QLDSV_TC
             this.gcCT_HP.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gcCT_HP.Location = new System.Drawing.Point(886, 50);
             this.gcCT_HP.Name = "gcCT_HP";
-            this.gcCT_HP.Size = new System.Drawing.Size(498, 706);
+            this.gcCT_HP.Size = new System.Drawing.Size(557, 706);
             this.gcCT_HP.TabIndex = 7;
             // 
             // frmHocPhi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1384, 756);
+            this.ClientSize = new System.Drawing.Size(1443, 756);
             this.Controls.Add(this.gcCT_HP);
             this.Controls.Add(this.gcHOCPHI);
             this.Controls.Add(this.panelControl1);

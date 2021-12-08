@@ -30,7 +30,6 @@ namespace QLDSV_TC
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.Label mALOPLabel;
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.comboHK = new System.Windows.Forms.ComboBox();
@@ -39,22 +38,12 @@ namespace QLDSV_TC
             this.bdsLOP = new System.Windows.Forms.BindingSource(this.components);
             this.lOPTableAdapter = new QLDSV_TC.DS_LOPTableAdapters.LOPTableAdapter();
             this.tableAdapterManager = new QLDSV_TC.DS_LOPTableAdapters.TableAdapterManager();
-            this.cbLOP = new System.Windows.Forms.ComboBox();
             this.btnPreview = new System.Windows.Forms.Button();
-            mALOPLabel = new System.Windows.Forms.Label();
+            this.cbLop = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DS_LOP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsLOP)).BeginInit();
             this.SuspendLayout();
-            // 
-            // mALOPLabel
-            // 
-            mALOPLabel.AutoSize = true;
-            mALOPLabel.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            mALOPLabel.Location = new System.Drawing.Point(96, 27);
-            mALOPLabel.Name = "mALOPLabel";
-            mALOPLabel.Size = new System.Drawing.Size(61, 18);
-            mALOPLabel.TabIndex = 25;
-            mALOPLabel.Text = "Mã Lớp:";
             // 
             // label3
             // 
@@ -84,7 +73,8 @@ namespace QLDSV_TC
             this.comboHK.Items.AddRange(new object[] {
             "1",
             "2",
-            "3"});
+            "3",
+            "4"});
             this.comboHK.Location = new System.Drawing.Point(676, 25);
             this.comboHK.Name = "comboHK";
             this.comboHK.Size = new System.Drawing.Size(121, 24);
@@ -124,20 +114,6 @@ namespace QLDSV_TC
             this.tableAdapterManager.LOPTableAdapter = this.lOPTableAdapter;
             this.tableAdapterManager.UpdateOrder = QLDSV_TC.DS_LOPTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // cbLOP
-            // 
-            this.cbLOP.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsLOP, "MALOP", true));
-            this.cbLOP.DataSource = this.bdsLOP;
-            this.cbLOP.DisplayMember = "MALOP";
-            this.cbLOP.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbLOP.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbLOP.FormattingEnabled = true;
-            this.cbLOP.Location = new System.Drawing.Point(162, 23);
-            this.cbLOP.Name = "cbLOP";
-            this.cbLOP.Size = new System.Drawing.Size(206, 26);
-            this.cbLOP.TabIndex = 26;
-            this.cbLOP.ValueMember = "MALOP";
-            // 
             // btnPreview
             // 
             this.btnPreview.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -149,14 +125,37 @@ namespace QLDSV_TC
             this.btnPreview.UseVisualStyleBackColor = true;
             this.btnPreview.Click += new System.EventHandler(this.btnPreview_Click);
             // 
+            // cbLop
+            // 
+            this.cbLop.DataSource = this.bdsLOP;
+            this.cbLop.DisplayMember = "MALOP";
+            this.cbLop.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbLop.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbLop.FormattingEnabled = true;
+            this.cbLop.Location = new System.Drawing.Point(120, 23);
+            this.cbLop.Name = "cbLop";
+            this.cbLop.Size = new System.Drawing.Size(236, 26);
+            this.cbLop.TabIndex = 29;
+            this.cbLop.ValueMember = "MALOP";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(66, 26);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(41, 18);
+            this.label4.TabIndex = 28;
+            this.label4.Text = "Lớp :";
+            // 
             // Xfrm_HocPhiTheoLop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 466);
+            this.Controls.Add(this.cbLop);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.btnPreview);
-            this.Controls.Add(mALOPLabel);
-            this.Controls.Add(this.cbLOP);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.comboHK);
@@ -181,7 +180,8 @@ namespace QLDSV_TC
         private System.Windows.Forms.BindingSource bdsLOP;
         private DS_LOPTableAdapters.LOPTableAdapter lOPTableAdapter;
         private DS_LOPTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.ComboBox cbLOP;
         private System.Windows.Forms.Button btnPreview;
+        private System.Windows.Forms.ComboBox cbLop;
+        private System.Windows.Forms.Label label4;
     }
 }
