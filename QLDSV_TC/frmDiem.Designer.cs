@@ -102,6 +102,7 @@ namespace QLDSV_TC
             // btnTaiLTC
             // 
             this.btnTaiLTC.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.btnTaiLTC.ImageKey = "(none)";
             this.btnTaiLTC.Location = new System.Drawing.Point(866, 17);
             this.btnTaiLTC.Name = "btnTaiLTC";
             this.btnTaiLTC.Size = new System.Drawing.Size(114, 36);
@@ -114,7 +115,7 @@ namespace QLDSV_TC
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.label3.Location = new System.Drawing.Point(614, 33);
+            this.label3.Location = new System.Drawing.Point(613, 27);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(56, 17);
             this.label3.TabIndex = 5;
@@ -124,7 +125,7 @@ namespace QLDSV_TC
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.label2.Location = new System.Drawing.Point(328, 33);
+            this.label2.Location = new System.Drawing.Point(327, 27);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(73, 17);
             this.label2.TabIndex = 4;
@@ -139,7 +140,7 @@ namespace QLDSV_TC
             "1",
             "2",
             "3"});
-            this.comboHK.Location = new System.Drawing.Point(690, 26);
+            this.comboHK.Location = new System.Drawing.Point(679, 24);
             this.comboHK.Name = "comboHK";
             this.comboHK.Size = new System.Drawing.Size(121, 24);
             this.comboHK.TabIndex = 3;
@@ -153,7 +154,7 @@ namespace QLDSV_TC
             "2018-2023",
             "2020-2021",
             "2021-2022"});
-            this.comboNK.Location = new System.Drawing.Point(416, 26);
+            this.comboNK.Location = new System.Drawing.Point(406, 24);
             this.comboNK.Name = "comboNK";
             this.comboNK.Size = new System.Drawing.Size(121, 24);
             this.comboNK.TabIndex = 2;
@@ -163,7 +164,7 @@ namespace QLDSV_TC
             this.comboKhoa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboKhoa.Font = new System.Drawing.Font("Tahoma", 10F);
             this.comboKhoa.FormattingEnabled = true;
-            this.comboKhoa.Location = new System.Drawing.Point(113, 26);
+            this.comboKhoa.Location = new System.Drawing.Point(111, 24);
             this.comboKhoa.Name = "comboKhoa";
             this.comboKhoa.Size = new System.Drawing.Size(161, 24);
             this.comboKhoa.TabIndex = 1;
@@ -173,7 +174,7 @@ namespace QLDSV_TC
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.label1.Location = new System.Drawing.Point(48, 33);
+            this.label1.Location = new System.Drawing.Point(47, 27);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 17);
             this.label1.TabIndex = 0;

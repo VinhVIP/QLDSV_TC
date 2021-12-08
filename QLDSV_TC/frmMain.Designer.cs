@@ -191,7 +191,7 @@ namespace QLDSV_TC
             // 
             // btnBCDSLop
             // 
-            this.btnBCDSLop.Caption = "Danh sách Lớp";
+            this.btnBCDSLop.Caption = "Danh sách LTC";
             this.btnBCDSLop.Id = 12;
             this.btnBCDSLop.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBCDSLop.ImageOptions.Image")));
             this.btnBCDSLop.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnBCDSLop.ImageOptions.LargeImage")));

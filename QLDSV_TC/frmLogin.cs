@@ -29,10 +29,12 @@ namespace QLDSV_TC
         private void LayDSKhoa()
         {
             if (Program.ConnectPublisher() == 0) return;
-            DataTable dt = Program.ExecSqlDataTable("EXEC SP_LAY_DS_KHOA");
+            Program.dtKhoa = Program.ExecSqlDataTable("EXEC SP_LAY_DS_KHOA");
+
+            Program.setupKhoa(Program.dtKhoa);
 
             // Lưu trữ danh sách khoa
-            Program.bdsDSKhoa.DataSource = dt;
+            Program.bdsDSKhoa.DataSource = Program.dtKhoa;
         }
 
         /**
@@ -90,7 +92,7 @@ namespace QLDSV_TC
 
                     if (Program.reader == null)
                     {
-                        MessageBox.Show("Eos hieu sao bi null :))", "Info");
+                        MessageBox.Show("null :))", "Info");
                         return;
                     }
 

@@ -135,12 +135,14 @@ namespace QLDSV_TC
             "1",
             "2",
             "3"});
+            this.comboHK.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboHK.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboHK.FormattingEnabled = true;
             this.comboHK.Items.AddRange(new object[] {
             "1",
             "2",
-            "3"});
+            "3",
+            "4"});
             this.comboHK.Location = new System.Drawing.Point(211, 198);
             this.comboHK.Name = "comboHK";
             this.comboHK.Size = new System.Drawing.Size(133, 26);

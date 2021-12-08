@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -37,13 +38,13 @@ namespace QLDSV_TC
             this.LOPTableAdapter.Fill(this.DS_LOP.LOP);
 
             comboKhoa.DataSource = Program.bdsDSKhoa;
-            comboKhoa.DisplayMember = "TENPM";
-            comboKhoa.ValueMember = "TENSERVER";
+            comboKhoa.DisplayMember = "TENKHOA";
+            comboKhoa.ValueMember = "TENPM";
 
-            comboKhoa.Text = Program.mKhoa;
+            comboKhoa.SelectedValue = Program.mKhoa;
             comboKhoa.Enabled = Program.role == "PGV";
 
-            maKhoa = comboKhoa.Text;
+            maKhoa = comboKhoa.SelectedValue.ToString();
 
             curServer = Program.server;
             curLogin = Program.mLogin;
@@ -56,6 +57,7 @@ namespace QLDSV_TC
         {
             btnGhi.Enabled = btnThem.Enabled = btnXoa.Enabled = btnLoadDSSV.Enabled = btnReload.Enabled = gcLop.Enabled = true;
             btnUndo.Enabled = gvSV.Enabled = panelLop.Enabled = false;
+            
         }
 
         private void comboKhoa_SelectedIndexChanged(object sender, EventArgs e)
@@ -65,9 +67,9 @@ namespace QLDSV_TC
                 return;
             }
 
-            Program.server = comboKhoa.SelectedValue.ToString();     
+            Program.server = Program.khoa[comboKhoa.Text].Item2;     
 
-            if (comboKhoa.Text != Program.mKhoa)
+            if (Program.khoa[comboKhoa.Text].ToString() != Program.mKhoa)
             {
                 Program.mLogin = Program.remoteLogin;
                 Program.pass = Program.remotePass;
@@ -92,7 +94,7 @@ namespace QLDSV_TC
                 this.LOPTableAdapter.Connection.ConnectionString = Program.connString;
                 this.LOPTableAdapter.Fill(this.DS_LOP.LOP);
                 
-                maKhoa = comboKhoa.Text;
+                maKhoa = comboKhoa.SelectedValue.ToString();
 
                 initState();
             }
@@ -306,6 +308,18 @@ namespace QLDSV_TC
                     txtKhoaHoc.Focus();
                     return;
                 }
+                else
+                {
+                    int year1 = Int32.Parse(txtKhoaHoc.Text.ToString().Substring(0, 4));
+                    int year2 = Int32.Parse(txtKhoaHoc.Text.ToString().Substring(5));
+
+                    if(year1 >= year2)
+                    {
+                        MessageBox.Show("Khóa học không hợp lệ!", "Thông báo", MessageBoxButtons.OK);
+                        txtKhoaHoc.Focus();
+                        return;
+                    }
+                }
 
 
                 string maLop = txtMaLop.Text.Trim();
@@ -333,6 +347,37 @@ namespace QLDSV_TC
             {
                 if (gcLop.Enabled)
                 {
+                    for (int i=0; i<bdsLOP.Count; i++)
+                    {
+                        String khoahoc = ((DataRowView)bdsLOP[i])["KHOAHOC"].ToString();
+                        if(Regex.IsMatch(khoahoc, "^[0-9]{4}-[0-9]{4}$") == false)
+                        {
+                            bdsLOP.Position = i;
+                            MessageBox.Show("Khóa học phải có định dạng ####-####", "Lỗi", MessageBoxButtons.OK);
+                            return;
+                        }
+                        else
+                        {
+                            int year1 = Int32.Parse(txtKhoaHoc.Text.ToString().Substring(0, 4));
+                            int year2 = Int32.Parse(txtKhoaHoc.Text.ToString().Substring(5));
+
+                            if (year1 >= year2)
+                            {
+                                MessageBox.Show("Khóa học không hợp lệ!", "Thông báo", MessageBoxButtons.OK);
+                                txtKhoaHoc.Focus();
+                                return;
+                            }
+                        }
+
+                        String tenlop = ((DataRowView)bdsLOP[i])["TENLOP"].ToString();
+                        if(tenlop.Length > 50)
+                        {
+                            bdsLOP.Position = i;
+                            MessageBox.Show("Tên lớp không được vượt quá 50 kí tự", "Lỗi", MessageBoxButtons.OK);
+                            return;
+                        }
+                    }
+                    
                     try
                     {
                         // Cập nhật Lớp
@@ -432,45 +477,6 @@ namespace QLDSV_TC
                             );
                         }
 
-                        /*int index = indexRow(dtCopy, dtSV.Rows[i]);
-                        if(index == -1)
-                        {
-                            // Thêm mới
-                            Console.WriteLine(dtSV.Rows[i]["MASV"] + " - " + i);
-
-                            dt.Rows.Add(dtSV.Rows[i]["MASV"], 
-                                   formatName(dtSV.Rows[i]["HO"].ToString()),
-                                   formatWord(dtSV.Rows[i]["TEN"].ToString().Trim()), 
-                                   dtSV.Rows[i]["PHAI"],
-                                   dtSV.Rows[i]["DIACHI"], 
-                                   convertDate(dtSV.Rows[i]["NGAYSINH"].ToString()), 
-                                   maLop,
-                                   dtSV.Rows[i]["DANGHIHOC"],
-                                   dtSV.Rows[i]["PASSWORD"],
-                                   true
-                            );
-                        }
-                        else
-                        {
-                            // Trùng, kiểm tra row đó có được chỉnh sửa hay không
-                            if(!isSameRow(dtSV.Rows[i], dtCopy.Rows[index])){
-                                Console.WriteLine(dtSV.Rows[i]["MASV"] + " Edit");
-
-                                dt.Rows.Add(dtSV.Rows[i]["MASV"],
-                                   formatName(dtSV.Rows[i]["HO"].ToString()),
-                                   formatWord(dtSV.Rows[i]["TEN"].ToString().Trim()),
-                                   dtSV.Rows[i]["PHAI"],
-                                   dtSV.Rows[i]["DIACHI"],
-                                   convertDate(dtSV.Rows[i]["NGAYSINH"].ToString()),
-                                   maLop,
-                                   dtSV.Rows[i]["DANGHIHOC"],
-                                   dtSV.Rows[i]["PASSWORD"],
-                                   false
-                            );
-
-                               
-                            }
-                        }*/
                         
                     }
 
@@ -511,7 +517,7 @@ namespace QLDSV_TC
 
                                 dtSV.Rows.Add(dt.Rows[i]["MASV"], dt.Rows[i]["HO"],
                                     dt.Rows[i]["TEN"], dt.Rows[i]["PHAI"],
-                                    dt.Rows[i]["DIACHI"], dt.Rows[i]["NGAYSINH"],
+                                    dt.Rows[i]["DIACHI"], convertDate(dt.Rows[i]["NGAYSINH"].ToString()),
                                     dt.Rows[i]["DANGHIHOC"], dt.Rows[i]["PASSWORD"]);
 
                                 i++; j++;
@@ -528,6 +534,7 @@ namespace QLDSV_TC
                         return;
                     }
 
+                    loadDSSV(maLop);
                     MessageBox.Show("Ghi thành công!", "Thông báo", MessageBoxButtons.OK);
 
 
@@ -562,7 +569,6 @@ namespace QLDSV_TC
             //}
             //return true;
         }
-
 
         private String formatName(string name)
         {

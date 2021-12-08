@@ -307,11 +307,11 @@ namespace QLDSV_TC
             this.gcMONHOC.DataSource = this.bdsMH;
             this.gcMONHOC.Dock = System.Windows.Forms.DockStyle.Right;
             this.gcMONHOC.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2);
-            this.gcMONHOC.Location = new System.Drawing.Point(449, 24);
+            this.gcMONHOC.Location = new System.Drawing.Point(455, 24);
             this.gcMONHOC.MainView = this.gridView1;
             this.gcMONHOC.MenuManager = this.barManager1;
             this.gcMONHOC.Name = "gcMONHOC";
-            this.gcMONHOC.Size = new System.Drawing.Size(935, 684);
+            this.gcMONHOC.Size = new System.Drawing.Size(929, 684);
             this.gcMONHOC.TabIndex = 10;
             this.gcMONHOC.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -368,7 +368,7 @@ namespace QLDSV_TC
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 24);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(449, 684);
+            this.panelControl1.Size = new System.Drawing.Size(455, 684);
             this.panelControl1.TabIndex = 11;
             // 
             // txtSOTIETTH

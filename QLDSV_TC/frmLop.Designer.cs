@@ -305,7 +305,7 @@ namespace QLDSV_TC
             this.gcLop.MainView = this.gridView1;
             this.gcLop.MenuManager = this.barManager2;
             this.gcLop.Name = "gcLop";
-            this.gcLop.Size = new System.Drawing.Size(1129, 200);
+            this.gcLop.Size = new System.Drawing.Size(1129, 253);
             this.gcLop.TabIndex = 6;
             this.gcLop.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -357,6 +357,9 @@ namespace QLDSV_TC
             // 
             this.colMAKHOA.FieldName = "MAKHOA";
             this.colMAKHOA.Name = "colMAKHOA";
+            this.colMAKHOA.OptionsColumn.AllowEdit = false;
+            this.colMAKHOA.OptionsColumn.AllowMove = false;
+            this.colMAKHOA.OptionsColumn.ReadOnly = true;
             this.colMAKHOA.Visible = true;
             this.colMAKHOA.VisibleIndex = 3;
             // 
@@ -444,18 +447,18 @@ namespace QLDSV_TC
             this.panelLop.Controls.Add(this.txtMaLop);
             this.panelLop.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelLop.Enabled = false;
-            this.panelLop.Location = new System.Drawing.Point(0, 280);
+            this.panelLop.Location = new System.Drawing.Point(0, 333);
             this.panelLop.Name = "panelLop";
-            this.panelLop.Size = new System.Drawing.Size(381, 419);
+            this.panelLop.Size = new System.Drawing.Size(381, 366);
             this.panelLop.TabIndex = 7;
             // 
             // panelSV
             // 
             this.panelSV.Controls.Add(this.gvSV);
             this.panelSV.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelSV.Location = new System.Drawing.Point(381, 280);
+            this.panelSV.Location = new System.Drawing.Point(381, 333);
             this.panelSV.Name = "panelSV";
-            this.panelSV.Size = new System.Drawing.Size(748, 419);
+            this.panelSV.Size = new System.Drawing.Size(748, 366);
             this.panelSV.TabIndex = 13;
             // 
             // gvSV
@@ -470,7 +473,7 @@ namespace QLDSV_TC
             this.gvSV.Location = new System.Drawing.Point(2, 2);
             this.gvSV.MultiSelect = false;
             this.gvSV.Name = "gvSV";
-            this.gvSV.Size = new System.Drawing.Size(744, 415);
+            this.gvSV.Size = new System.Drawing.Size(744, 362);
             this.gvSV.TabIndex = 0;
             this.gvSV.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvSV_CellValueChanged);
             // 

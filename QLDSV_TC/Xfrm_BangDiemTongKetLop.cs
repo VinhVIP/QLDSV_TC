@@ -26,10 +26,10 @@ namespace QLDSV_TC
             this.LOPTableAdapter.Fill(this.DS_LOP.LOP);
 
             comboKhoa.DataSource = Program.bdsDSKhoa;
-            comboKhoa.DisplayMember = "TENPM";
-            comboKhoa.ValueMember = "TENSERVER";
+            comboKhoa.DisplayMember = "TENKHOA";
+            comboKhoa.ValueMember = "TENPM";
 
-            comboKhoa.Text = Program.mKhoa;
+            comboKhoa.SelectedValue = Program.mKhoa;
             comboKhoa.Enabled = Program.role == "PGV";
 
         }
@@ -54,9 +54,9 @@ namespace QLDSV_TC
                 return;
             }
 
-            Program.server = comboKhoa.SelectedValue.ToString();
+            Program.server = Program.khoa[comboKhoa.Text].Item2;
 
-            if (comboKhoa.Text != Program.mKhoa)
+            if (Program.khoa[comboKhoa.Text].ToString() != Program.mKhoa)
             {
                 Program.mLogin = Program.remoteLogin;
                 Program.pass = Program.remotePass;

@@ -26,6 +26,9 @@ namespace QLDSV_TC
         public static BindingSource bindingSourcePM = new BindingSource();
         public static BindingSource bdsDSKhoa = new BindingSource();
 
+        public static DataTable dtKhoa = new DataTable();
+        public static Dictionary<string, Tuple<string, string>> khoa = new Dictionary<string, Tuple<string, string>>();
+
         public static string mKhoa = "";
 
         public static String server = "";
@@ -306,6 +309,15 @@ namespace QLDSV_TC
                 sb.Append(res[i].ToString("x2"));
             }
             return sb.ToString();
+        }
+
+        public static void setupKhoa(DataTable dtDSKhoa)
+        {
+            if (khoa.Count > 0) khoa.Clear();
+            for(int i=0; i<dtDSKhoa.Rows.Count; i++)
+            {
+                khoa[dtDSKhoa.Rows[i]["TENKHOA"].ToString()] = Tuple.Create(dtDSKhoa.Rows[i]["TENPM"].ToString(), dtDSKhoa.Rows[i]["TENSERVER"].ToString());
+            }
         }
 
     }

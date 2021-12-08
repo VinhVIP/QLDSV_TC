@@ -27,10 +27,10 @@ namespace QLDSV_TC
         private void frmDiem_Load(object sender, EventArgs e)
         {
             comboKhoa.DataSource = Program.bdsDSKhoa;
-            comboKhoa.DisplayMember = "TENPM";
-            comboKhoa.ValueMember = "TENSERVER";
+            comboKhoa.DisplayMember = "TENKHOA";
+            comboKhoa.ValueMember = "TENPM";
 
-            comboKhoa.Text = Program.mKhoa;
+            comboKhoa.SelectedValue = Program.mKhoa;
             comboKhoa.Enabled = Program.role == "PGV";
         }
 
@@ -41,9 +41,9 @@ namespace QLDSV_TC
                 return;
             }
 
-            Program.server = comboKhoa.SelectedValue.ToString();
+            Program.server = Program.khoa[comboKhoa.Text].Item2;
 
-            if (comboKhoa.Text != Program.mKhoa)
+            if (Program.khoa[comboKhoa.Text].ToString() != Program.mKhoa)
             {
                 Program.mLogin = Program.remoteLogin;
                 Program.pass = Program.remotePass;
