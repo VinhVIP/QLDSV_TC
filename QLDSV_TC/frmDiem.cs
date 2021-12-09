@@ -18,7 +18,6 @@ namespace QLDSV_TC
 
         private String maLTC;
         private DataTable dtDSDK, dtCopy;
-        //private HashSet<int> indexChange = new HashSet<int>();
 
         public frmDiem()
         {
@@ -61,18 +60,7 @@ namespace QLDSV_TC
             {
                 MessageBox.Show("Lỗi kết nối về chi nhánh mới! ", "Thông báo", MessageBoxButtons.OK);
             }
-            else
-            {
-                //LOPTableAdapter.Connection.ConnectionString = Program.connString;
-                //LOPTableAdapter.Fill(DS_SV.LOP);
 
-                //SVTableAdapter.Connection.ConnectionString = Program.connString;
-                //SVTableAdapter.Fill(DS_SV.SINHVIEN);
-
-                //maKhoa = comboKhoa.Text;
-
-                //initState();
-            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -102,6 +90,8 @@ namespace QLDSV_TC
 
         private void btnNhapDiem_Click(object sender, EventArgs e)
         {
+            if (bdsDSLTC.Count == 0) return;
+
             maLTC = ((DataRowView)bdsDSLTC[bdsDSLTC.Position])["MALTC"].ToString();
             String sql = "EXEC SP_LAY_DSSV_DANGKY " + maLTC;
             dtDSDK = Program.ExecSqlDataTable(sql);
@@ -135,12 +125,12 @@ namespace QLDSV_TC
             dtDSDK.Columns["DIEM_TK"].ReadOnly = true;
 
             gcDiem.DataSource = dtDSDK;
-
-            //indexChange.Clear();
         }
 
         private void btnGhiDiem_Click(object sender, EventArgs e)
         {
+            if (dtDSDK == null || dtDSDK.Rows.Count == 0) return;
+
             DataTable dt = new DataTable();
             dt.Columns.Add("MALTC", typeof(int));
             dt.Columns.Add("MASV", typeof(string));
@@ -260,6 +250,26 @@ namespace QLDSV_TC
                         mustEdit = true;
 
                         return;
+                    }
+                    else
+                    {
+                        float nguyen = (float) Math.Floor(mark);
+                        float tp = mark - nguyen;
+
+                        if(tp >= 0 && tp < 0.25)
+                        {
+                            mark = nguyen;
+                        }else if(tp < 0.75)
+                        {
+                            mark = nguyen + 0.5f;
+                        }
+                        else
+                        {
+                            mark = nguyen + 1f;
+                        }
+
+                        gcDiem.CurrentCell.Value = mark;
+                        tinhDiemTK(e.RowIndex);
                     }
                 }
 

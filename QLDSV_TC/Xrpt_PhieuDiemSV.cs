@@ -23,7 +23,7 @@ namespace QLDSV_TC
 
         public void setInfo(string hoTen, string lop, string khoa)
         {
-            labelHoTen.Text = hoTen;
+            labelHoTen.Text = hoTen.ToUpper();
             labelLop.Text = lop;
             labelKhoa.Text = khoa;
         }

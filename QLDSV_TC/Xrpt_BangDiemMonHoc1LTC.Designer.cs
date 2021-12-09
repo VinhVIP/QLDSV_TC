@@ -398,7 +398,7 @@ namespace QLDSV_TC
             this.tableCell2.StylePriority.UseTextAlignment = false;
             this.tableCell2.Text = "Họ";
             this.tableCell2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.tableCell2.Weight = 0.2287531430175484D;
+            this.tableCell2.Weight = 0.25275053161182909D;
             // 
             // tableCell3
             // 
@@ -414,7 +414,7 @@ namespace QLDSV_TC
             this.tableCell3.StylePriority.UseTextAlignment = false;
             this.tableCell3.Text = "Tên";
             this.tableCell3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.tableCell3.Weight = 0.095738406455727051D;
+            this.tableCell3.Weight = 0.13500685180362021D;
             // 
             // tableCell4
             // 
@@ -431,7 +431,7 @@ namespace QLDSV_TC
             this.tableCell4.StylePriority.UseTextAlignment = false;
             this.tableCell4.Text = "Điểm chuyên cần";
             this.tableCell4.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.tableCell4.Weight = 0.19654589926845381D;
+            this.tableCell4.Weight = 0.18127474664461346D;
             // 
             // tableCell5
             // 
@@ -448,7 +448,7 @@ namespace QLDSV_TC
             this.tableCell5.StylePriority.UseTextAlignment = false;
             this.tableCell5.Text = "Điểm giữa kỳ";
             this.tableCell5.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.tableCell5.Weight = 0.18664885667654182D;
+            this.tableCell5.Weight = 0.16919632082217587D;
             // 
             // tableCell6
             // 
@@ -465,7 +465,7 @@ namespace QLDSV_TC
             this.tableCell6.StylePriority.UseTextAlignment = false;
             this.tableCell6.Text = "Điểm cuối kỳ";
             this.tableCell6.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.tableCell6.Weight = 0.20718112915438605D;
+            this.tableCell6.Weight = 0.1766389836904185D;
             // 
             // xrTableCell1
             // 
@@ -563,7 +563,7 @@ namespace QLDSV_TC
             this.tableCell8.StylePriority.UseBorderColor = false;
             this.tableCell8.StylePriority.UseBorders = false;
             this.tableCell8.StylePriority.UseBorderWidth = false;
-            this.tableCell8.Weight = 0.22875313069262218D;
+            this.tableCell8.Weight = 0.2527505024808856D;
             // 
             // tableCell9
             // 
@@ -577,7 +577,7 @@ namespace QLDSV_TC
             this.tableCell9.StylePriority.UseBorderColor = false;
             this.tableCell9.StylePriority.UseBorders = false;
             this.tableCell9.StylePriority.UseBorderWidth = false;
-            this.tableCell9.Weight = 0.09573837140728389D;
+            this.tableCell9.Weight = 0.13500684735758819D;
             // 
             // tableCell10
             // 
@@ -593,7 +593,7 @@ namespace QLDSV_TC
             this.tableCell10.StylePriority.UseBorderWidth = false;
             this.tableCell10.StylePriority.UseTextAlignment = false;
             this.tableCell10.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
-            this.tableCell10.Weight = 0.19654597548548733D;
+            this.tableCell10.Weight = 0.18127474349648029D;
             // 
             // tableCell11
             // 
@@ -609,7 +609,7 @@ namespace QLDSV_TC
             this.tableCell11.StylePriority.UseBorderWidth = false;
             this.tableCell11.StylePriority.UseTextAlignment = false;
             this.tableCell11.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
-            this.tableCell11.Weight = 0.18664879349665439D;
+            this.tableCell11.Weight = 0.16919632215769243D;
             // 
             // tableCell12
             // 
@@ -625,7 +625,7 @@ namespace QLDSV_TC
             this.tableCell12.StylePriority.UseBorderWidth = false;
             this.tableCell12.StylePriority.UseTextAlignment = false;
             this.tableCell12.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
-            this.tableCell12.Weight = 0.20718099378370103D;
+            this.tableCell12.Weight = 0.17663884937310229D;
             // 
             // xrTableCell4
             // 
